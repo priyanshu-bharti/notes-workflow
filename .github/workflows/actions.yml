@@ -28,7 +28,7 @@ jobs:
       - name: 📝 Generate Cheatsheets
         run: |
           cd scripts
-          node src/generateCheatsheets.js
+          node src/generateCheatsheets.js --no-prompt
 
       - name: 🔄 Update Google Sheets
         run: |

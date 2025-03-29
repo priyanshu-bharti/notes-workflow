@@ -5,6 +5,7 @@ const inquirer = require("inquirer");
 const csvWriter = require("csv-writer");
 
 const DEBUGGING = false;
+const NO_PROMPT = process.argv.includes("--no-prompt");
 
 const { PROMPT_CATEGORIES, HEADERS } = require("./constants.js");
 
@@ -20,6 +21,9 @@ const ensureDirectoryExists = (dir) => {
 
 // Prompt the user to choose a category
 const promptUser = async () => {
+  if (NO_PROMPT) {
+    return null; // Skip prompt in CI/CD mode
+  }
   const { categoryChoice } = await inquirer.prompt([
     {
       type: "list",
@@ -107,8 +111,15 @@ const generateCheatsheet = async (category) => {
 
 // Run the script
 (async () => {
-  const selectedCategory = await promptUser();
-  await generateCheatsheet(selectedCategory);
+  if (NO_PROMPT) {
+    console.log("🚀 Running in CI/CD mode - Generating cheatsheets for all categories");
+    for (const category of Object.values(PROMPT_CATEGORIES)) {
+      await generateCheatsheet(category);
+    }
+  } else {
+    const selectedCategory = await promptUser();
+    if (selectedCategory) await generateCheatsheet(selectedCategory);
+  }
 })();
 
 module.exports = { generateCheatsheet };
