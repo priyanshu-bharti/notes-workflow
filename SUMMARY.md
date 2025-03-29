@@ -15,7 +15,7 @@
 
 ## Data Structures and Algorithms
 
-### Concepts
+### DSA Concepts
 
 - [Big O](dsa/concepts/big-o.md)
 - [Primitive Arrays](dsa/concepts/primitive-arrays.md)
