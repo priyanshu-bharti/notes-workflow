@@ -1,0 +1,19 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "gen-cheatsheets": "node src/generateCheatsheets.js",
+    "update-google-sheets": "node src/updateGoogleSheets.js",
+    "start": "npm run gen-cheatsheets && npm run update-google-sheets"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-writer": "^1.6.0",
+    "gray-matter": "^4.0.3"
+  }
+}
