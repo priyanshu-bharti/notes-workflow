@@ -38,14 +38,3 @@ jobs:
           SHEET_ID: ${{ secrets.SHEET_ID }}
           GOOGLE_SERVICE_ACCOUNT_EMAIL: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
           GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
-
-      - name: Configure Git
-        run: |
-          git config --global user.name "Priyanshu Bharti"
-          git config --global user.email "priyanshub25@gmail.com"
-
-      - name: Commit and Push Changes
-        run: |
-          git add .
-          git commit -m "Auto-update notes" || echo "No changes to commit"
-          git push origin main
