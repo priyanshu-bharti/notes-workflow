@@ -1,36 +1,49 @@
-# This is a basic workflow to help you get started with Actions
+name: Update Cheatsheets & Google Sheets
 
-name: CI
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "master" ]
+    branches:
+      - main  # Change if using a different branch
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "sync"
-  sync:
-    # The type of runner that the job will run on
+  update_cheatsheets:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: "Checkout Repository"
+      - name: 🚀 Checkout Repository
         uses: actions/checkout@v4
 
-      # Runs commands for configuring git on the remote ubuntu
+      - name: 🔧 Set Up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 23  # Adjust if needed
+
+      - name: 📦 Install Dependencies
+        run: |
+          cd scripts
+          npm install
+
+      - name: 📝 Generate Cheatsheets
+        run: |
+          cd scripts
+          node src/generateCheatsheets.js
+
+      - name: 🔄 Update Google Sheets
+        run: |
+          cd scripts
+          node src/updateGoogleSheets.js
+        env:
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+          GOOGLE_SERVICE_ACCOUNT_EMAIL: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
+          GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
+
       - name: Configure Git
         run: |
           git config --global user.name "Priyanshu Bharti"
           git config --global user.email "priyanshub25@gmail.com"
 
-      # Runs Commands for committing and pushing new changes to git
       - name: Commit and Push Changes
         run: |
           git add .
