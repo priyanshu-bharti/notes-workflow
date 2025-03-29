@@ -6,6 +6,9 @@ const PROMPT_CATEGORIES = {
   4: "backend-concepts",
   5: "js-ts",
   6: "interview-questions",
+  7: "dbms",
+  8: "operating-systems",
+  9: "networking",
 };
 
 const HEADERS = {
@@ -15,16 +18,72 @@ const HEADERS = {
     "difficulty",
     "description",
     "use-cases",
+    "naive-approach",
     "time-complexity",
     "space-complexity",
-    "naive-approach",
     "optimal-approach",
   ],
-  "system-design": ["Component", "Purpose", "Tech Stack", "Scalability"],
-  java: ["Concept", "Example", "Use Cases", "Best Practices"],
-  "backend-concepts": ["Topic", "Description", "Tools", "Common Issues"],
-  "js-ts": ["Feature", "Example", "ES6+", "Performance"],
-  "interview-questions": ["Question", "Difficulty", "Topics", "Optimal Answer"],
+  "system-design": [
+    "component",
+    "purpose",
+    "examples",
+    "practical Usage",
+    "how-to-scale",
+    "pros",
+    "cons",
+  ],
+  java: [
+    "syntax",
+    "description",
+    "example",
+    "applications",
+    "best-practices",
+    "pros",
+    "cons",
+  ],
+  "backend-concepts": [
+    "topic",
+    "description",
+    "examples",
+    "application"
+  ],
+  "js-ts": [
+    "syntax",
+    "description",
+    "example",
+    "applications",
+    "best-practices",
+    "pros",
+    "cons",
+  ],
+  "interview-questions": [
+    "question",
+    "solution",
+    "example",
+    "pros",
+    "cons"
+  ],
+  "dbms": [
+    "question",
+    "solution",
+    "example",
+    "pros",
+    "cons"
+  ],
+  "operating-systems": [
+    "question",
+    "solution",
+    "example",
+    "pros",
+    "cons"
+  ],
+  "networking": [
+    "question",
+    "solution",
+    "example",
+    "pros",
+    "cons"
+  ],
 };
 
 module.exports = {
