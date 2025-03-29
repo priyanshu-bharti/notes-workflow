@@ -13,4 +13,16 @@
 - [Basics](java/core/0.Basics.md)
 - [Intermediate](java/core/1.Intermediate.md)
 
-## Interview Prep Questions
+## Data Structures and Algorithms
+
+## System Design
+
+## Database Management Systems
+
+## Operating Systems
+
+## Interview Questions
+
+## Networking
+
+## Javascript and Typescript
