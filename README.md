@@ -1,4 +1,4 @@
-# Welcome
+# Overview
 
 Welcome to my collection of notes covering essential topics for software development and system design.
 
@@ -8,7 +8,7 @@ This GitBook serves as a structured knowledge base, helping with quick revisions
 
 ### Flowcharts
 
-```
+```mermaid
 graph TD;
 
   A[Rectangle] --> B(Rounded)
@@ -19,8 +19,21 @@ graph TD;
   F --> G{Decision}
   G -->|Yes| H[/Trapezoid/]
   G -->|No| I[\Alternate Trapezoid/]
-
 ```
+
+```mermaid
+
+  A[Rectangle] --> B(Rounded)
+  B --> C([Stadium])
+  C --> D((Circle))
+  D --> E{{Hexagon}}
+  E --> F[/Parallelogram/]
+  F --> G{Decision}
+  G -->|Yes| H[/Trapezoid/]
+  G -->|No| I[\Alternate Trapezoid/]
+```
+
+
 
 ```mermaid
 graph TD;
