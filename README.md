@@ -8,7 +8,7 @@ This GitBook serves as a structured knowledge base, helping with quick revisions
 
 ### Flowcharts
 
-```mermaid
+```
 graph TD;
 
   A[Rectangle] --> B(Rounded)
@@ -22,6 +22,7 @@ graph TD;
 ```
 
 ```mermaid
+graph TD;
 
   A[Rectangle] --> B(Rounded)
   B --> C([Stadium])
