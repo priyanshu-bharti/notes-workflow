@@ -30,6 +30,19 @@ graph TD;
   G -->|No| I[\Alternate Trapezoid/]
 ```
 
+```
+graph TD;
+
+  A[Rectangle] --> B(Rounded)
+  B --> C([Stadium])
+  C --> D((Circle))
+  D --> E{{Hexagon}}
+  E --> F[/Parallelogram/]
+  F --> G{Decision}
+  G -->|Yes| H[/Trapezoid/]
+  G -->|No| I[\Alternate Trapezoid/]
+```
+
 ```mermaid
 graph TD;
 
