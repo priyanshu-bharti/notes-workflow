@@ -75,3 +75,18 @@ graph LR
   C -->|Base + 3 * size| D[idx 3]
   D -->|Base + 4 * size| E[idx 4]
 ```
+
+## Insertion and Deletion in the array
+
+### Insert at Middle
+
+1. Check if the array is full. If yes, return an error.
+2. Shift all elements to the right from the insertion index.
+3. Insert the new element at the desired index.
+
+### Delete at Middle
+
+1. Check if the array is empty.
+2. Remove the element at the specified index.
+3. Shift all elements to the left to fill the gap.
+4. Reduce the size of the array.
