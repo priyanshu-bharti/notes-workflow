@@ -1,13 +1,16 @@
-const fs = require("fs");
-const path = require("path");
-const matter = require("gray-matter");
-const inquirer = require("inquirer");
+const fs        = require("fs");
+const path      = require("path");
+const matter    = require("gray-matter");
+const inquirer  = require("inquirer");
 const csvWriter = require("csv-writer");
+
+
+const { PROMPT_CATEGORIES, HEADERS } = require("./constants.js");
+
 
 const DEBUGGING = false;
 const NO_PROMPT = process.argv.includes("--no-prompt");
 
-const { PROMPT_CATEGORIES, HEADERS } = require("./constants.js");
 
 // Define the project root (Assumes the script is in "scripts/src/")
 const PROJECT_ROOT = path.resolve(__dirname, "../../");
@@ -74,24 +77,30 @@ const generateCheatsheet = async (category) => {
 
   const markdownFiles = getMarkdownFiles(NOTES_DIR);
   console.log(`📝 Found ${markdownFiles.length} markdown files in ${category}`);
-  const data = markdownFiles.map((file) => {
-    const content = fs.readFileSync(file, "utf8");
-    const parsed = matter(content);
 
-    if (DEBUGGING === true) {
-      // Debugging logs
-      console.log(`📂 File: ${file}`);
-      console.log("🛠 Extracted front matter:", parsed.data);
-    }
+  const data = markdownFiles
+    .map((file) => {
+      const content = fs.readFileSync(file, "utf8");
+      const parsed = matter(content);
 
-    const relativePath = path.relative(NOTES_DIR, file);
-    const type = relativePath.split(path.sep)[0];
+      if (Object.keys(parsed.data).length === 0) {
+        return null; // Skip files without front-matter
+      }
 
-    return { TYPE: type, ...parsed.data };
-  });
+      if (DEBUGGING === true) {
+        console.log(`📂 File: ${file}`);
+        console.log("🛠 Extracted front matter:", parsed.data);
+      }
+
+      const filename = path.basename(file, ".md");
+      return { Filename: filename, ...parsed.data };
+    })
+    .filter(Boolean); // Remove null entries
 
   if (data.length === 0) {
-    console.warn(`⚠️ Warning: No markdown files found in "${category}".`);
+    console.warn(
+      `⚠️ Warning: No markdown files with front-matter found in "${category}".`
+    );
     return;
   }
 
@@ -100,7 +109,7 @@ const generateCheatsheet = async (category) => {
   const writer = csvWriter.createObjectCsvWriter({
     path: OUTPUT_CSV,
     header: [
-      { id: "TYPE", title: "TYPE" },
+      { id: "Filename", title: "FILENAME" },
       ...columnHeaders.map((key) => ({ id: key, title: key.toUpperCase() })),
     ],
   });
@@ -112,7 +121,9 @@ const generateCheatsheet = async (category) => {
 // Run the script
 (async () => {
   if (NO_PROMPT) {
-    console.log("🚀 Running in CI/CD mode - Generating cheatsheets for all categories");
+    console.log(
+      "🚀 Running in CI/CD mode - Generating cheatsheets for all categories"
+    );
     for (const category of Object.values(PROMPT_CATEGORIES)) {
       await generateCheatsheet(category);
     }
