@@ -1,3 +1,9 @@
+---
+topic: "Big O Notation"
+description: "Big O notation provides a way to analyze the upper bound of an algorithm's growth rate, helping in comparing and optimizing algorithms."
+use-cases: "Used in algorithm analysis, software performance tuning, and system scalability planning."
+---
+
 # Big O Notation
 
 ## What is it?
