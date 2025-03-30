@@ -138,24 +138,6 @@ public class BinarySearch {
 }
 ```
 
-```mermaid
-graph TD;
-    A["Start (lo, hi)"] --> B["Check if lo > hi"];
-    B -- "Yes" --> C["Return -1 (Not Found)"];
-    B -- "No" --> D["Calculate mid = lo + (hi - lo) / 2"];
-
-    D --> E["arr[mid] == value?"];
-    E -- "Yes" --> F["Return mid (Found)"];
-    E -- "No" --> G["arr[mid] > value?"];
-
-    G -- "Yes" --> H["Call search(arr, value, lo, mid - 1)"];
-    G -- "No" --> I["Call search(arr, value, mid + 1, hi)"];
-
-    H --> A;
-    I --> A;
-
-```
-
 ### Implementation (Iteration)
 
 ```java
@@ -184,18 +166,17 @@ public class BinarySearch {
 
 ```mermaid
 graph TD;
-    A["Start (lo = 0, hi = arr.length - 1)"] --> B["While lo <= hi"];
-    B -- "No" --> C["Return -1 (Not Found)"];
-    B -- "Yes" --> D["Calculate mid = lo + (hi - lo) / 2"];
+    A["Start with sorted array"] --> B["Pick the middle element"];
 
-    D --> E["arr[mid] == value?"];
-    E -- "Yes" --> F["Return mid (Found)"];
-    E -- "No" --> G["arr[mid] > value?"];
+    B --> C["Is it the target?"];
+    C -- "Yes" --> D["Return index (Found)"];
 
-    G -- "Yes" --> H["hi = mid - 1"];
-    G -- "No" --> I["lo = mid + 1"];
+    C -- "No" --> E["Is it smaller?"];
+    E -- "Yes" --> F["Search the right half"];
+    E -- "No" --> G["Search the left half"];
 
-    H --> B;
-    I --> B;
+    F --> B;
+    G --> B;
 
+    D --> H["Done"];
 ```
