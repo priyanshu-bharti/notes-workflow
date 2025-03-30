@@ -1,15 +1,3 @@
----
-topic: "Search Algorithms"
-problem: "Efficiently find an element in a dataset"
-difficulty: "Medium"
-description: "Search algorithms are used to locate elements in a dataset. The efficiency of a search algorithm depends on the structure and sorting of the data."
-use-cases: "Garbage Collection (Linear Search), Large sorted datasets (Binary Search, Jump Search)"
-naive-approach: "Linear Search - Iterate through each element to find the target."
-time-complexity: "Linear Search: O(N), Jump Search: O(√N), Binary Search: O(log N)"
-space-complexity: "O(1)"
-optimal-approach: "Binary Search is optimal for sorted data, providing O(log N) efficiency."
----
-
 # Search Algorithms (For linear data structures)
 
 ## Linear Search (Brute Force)

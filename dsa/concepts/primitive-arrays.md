@@ -1,12 +1,3 @@
----
-topic: "Primitive Arrays"
-description: "Primitive arrays provide a contiguous block of memory to store multiple elements of the same type. They offer O(1) lookups due to direct memory addressing but come with fixed size constraints."
-use-cases: "Used in scenarios requiring fast lookups, low overhead memory allocation, and cache-friendly data access patterns. Commonly used in low-level programming, system memory management, and performance-critical applications."
-naive-approach: "Using loops for inserting, deleting, and searching elements, which can lead to inefficient operations."
-time-complexity: "Access: O(1), Search: O(n), Insert/Delete at beginning/middle: O(n), Insert/Delete at end: O(1)"
-space-complexity: "O(n) for storing elements; additional space required only if resizing is needed."
----
-
 # Primitive Arrays
 
 - Contiguous block of memory which stores multiple items of the same type.
