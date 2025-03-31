@@ -1,7 +1,16 @@
 {
   "cSpell.words": [
+    "Antipatterns",
     "Arraylist",
+    "Backpressure",
+    "Elastisearch",
+    "Leetcode",
+    "Microfrontends",
+    "Pastebin",
     "Quasilinear",
     "Sublinear"
-  ]
+  ],
+  "cSpell.enabledFileTypes": {
+    "markdown": true
+  }
 }
