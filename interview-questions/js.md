@@ -1,10 +1,4 @@
-# Javascript
-
-Tags: Interviewing
-Created time: July 5, 2024 6:00 PM
-Last edited time: April 1, 2025 1:31 AM
-
-# Various Data Types
+## Various Data Types
 
 - Primitives
   - Number
@@ -25,7 +19,7 @@ Last edited time: April 1, 2025 1:31 AM
   - WeakMap (GC when no reference exists)
   - WeakSet (GC when no reference exists)
 
-# Objects in Javascript
+## Objects in Javascript
 
 - KV pairs where keys are strings, values are any of the above data types
 - Objects allows you to group related data, and functions together.
@@ -89,7 +83,7 @@ function createCar(make, model, year) {
 let car6 = createCar("BMW", "X5", 2022);
 ```
 
-# Prototypal Inheritance
+## Prototypal Inheritance
 
 - Allows objects to inherit properties and methods from other objects.
 - Inheritance is based on objects rather than classes.
@@ -164,7 +158,7 @@ console.log(obj.toString()); // [object Object]
 obj.greet(); // Hello! (All objects now have this method)
 ```
 
-# Scoping
+## Scoping
 
 - Scoping refers to the accessibility of variables within different parts of a program.
 - In JavaScript, there are two types of scope:
@@ -201,17 +195,17 @@ obj.greet(); // Hello! (All objects now have this method)
 
 ![Untitled](Javascript%209da480f2d1cc4818aec4e61c424e0684/Untitled%201.png)
 
-# Hoisting
+## Hoisting
 
 - Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compilation phase.
 - However, only the declarations are hoisted, not the initializations.
 
-# Temporal Dead Zone
+## Temporal Dead Zone
 
 - The Temporal Dead Zone is a behavior in JavaScript where variables declared with `let` and `const` are not accessible before their declaration within their scope, even though they are hoisted.
 - This zone starts from the beginning of the block until the variable's declaration is encountered.
 
-# Closures
+## Closures
 
 - A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function's variables, even after the outer function has returned.
 - Closures allow the inner function to retain access to the outer function's scope chain.
@@ -257,7 +251,7 @@ newFunction("inside");
      - The inner function retains a reference to the lexical environment of the outer function even after the outer function has completed execution and its execution context is destroyed.
      - This retained reference allows the inner function to access and modify the variables that were in the scope of the outer function at the time of the inner function's creation.
 
-# Null vs Undefined
+## Null vs Undefined
 
 - **Undefined**:
   - Default value for uninitialized variables and parameters.
@@ -270,7 +264,7 @@ newFunction("inside");
 - Using `==` (loose equality), `undefined` and `null` are considered equal because they both represent the absence of a value.
 - Using `===` (strict equality), they are not equal because they are different types.
 
-# Loose vs Strict Equality
+## Loose vs Strict Equality
 
 ### Loose Equality (`==`)
 
@@ -352,7 +346,7 @@ if (userInput == 5) {
 - **Strict Equality (`===`)**: Compares values without type conversion, requiring both value and type to be the same.
 - Using strict equality (`===`) is generally recommended to avoid the pitfalls of type coercion, leading to more predictable and maintainable code.
 
-# ES6 Features
+## ES6 Features
 
 - Arrow Functions
 - Classes
@@ -365,7 +359,7 @@ if (userInput == 5) {
 - Template Literals
 - Let and Const
 
-# Call, Bind and Apply
+## Call, Bind and Apply
 
 - In JavaScript, `call`, `bind`, and `apply` are methods used to manipulate how a function is executed and how it accesses its `this` context and arguments.
 - Call
@@ -469,7 +463,7 @@ if (userInput == 5) {
 - **`apply`**: Use when you have an array of arguments or want to pass arguments as an array-like object.
 - **`bind`**: Use when you want to create a function with a specific `this` context and possibly some initial arguments, to be invoked later.
 
-# Arrow Functions
+## Arrow Functions
 
 - Arrow functions in JavaScript are a syntactically compact way to write anonymous functions.
 - They have several differences compared to regular functions (function declarations or function expressions).
@@ -560,7 +554,7 @@ const add = (a, b) => a + b;
 - Regular functions, on the other hand, provide more flexibility with `this`, `arguments`, and constructor functionality, making them appropriate for object-oriented programming and more complex function structures.
 - Understanding these differences helps in choosing the appropriate function syntax for different programming needs in JavaScript.
 
-# Shallow vs Deep Copying
+## Shallow vs Deep Copying
 
 - **Mutability**
   - Shallow copying retains references to nested objects or arrays, so changes to these nested references affect both the original and the shallow copy.
@@ -571,7 +565,7 @@ const add = (a, b) => a + b;
 - **Performance**
   - Shallow copying is generally faster and less memory-intensive, especially for large data structures, because it does not duplicate nested elements.
 
-# Array Methods
+## Array Methods
 
 | Method      | Description                                                             | Example                                  |
 | ----------- | ----------------------------------------------------------------------- | ---------------------------------------- |
@@ -586,7 +580,7 @@ const add = (a, b) => a + b;
 | `map()`     | Creates a new array with results of calling a function on every element | `arr.map(item => item * 2)`              |
 | `filter()`  | Creates a new array with elements passing a test                        | `arr.filter(item => item > 5)`           |
 
-# String Methods
+## String Methods
 
 | Method          | Description                                             | Example                            |
 | --------------- | ------------------------------------------------------- | ---------------------------------- |
@@ -601,7 +595,7 @@ const add = (a, b) => a + b;
 | `toUpperCase()` | Converts string to uppercase                            | `str.toUpperCase()`                |
 | `toLowerCase()` | Converts string to lowercase                            | `str.toLowerCase()`                |
 
-# Things passed by Value and Reference
+## Things passed by Value and Reference
 
 ### Value
 
@@ -627,7 +621,7 @@ const add = (a, b) => a + b;
 - Changes inside the function affect the original variable.
 - Applies to objects, including arrays and functions.
 
-# InstanceOf vs typeOf
+## InstanceOf vs typeOf
 
 ### `typeof` Operator
 
@@ -699,7 +693,7 @@ const add = (a, b) => a + b;
 - `typeof` checks the primitive type or function status of a value, while `instanceof` checks if an object is an instance of a specific constructor function or its prototype chain.
 - Understanding their differences helps in effectively determining and handling data types and object relationships in JavaScript programming.
 
-# Constructor Function
+## Constructor Function
 
 - In JavaScript, a constructor function is a function that is used to create and initialize objects.
 - It serves as a blueprint or template for creating multiple instances of objects that share similar properties and methods.
@@ -735,7 +729,7 @@ person1.sayHello(); // "Hello, my name is Alice and I am 30 years old."
 person2.sayHello(); // "Hello, my name is Bob and I am 25 years old."
 ```
 
-# Cookies
+## Cookies
 
 - **Cookies** are small pieces of data stored on the client's browser.
 - They are primarily used to store user-specific information or settings that persist across different sessions or pages.
@@ -793,7 +787,7 @@ document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 5. **`secure`**
    - Optional. If present, the cookie will only be transmitted over secure (HTTPS) connections.
 
-# Cookie Data Storage Limit
+## Cookie Data Storage Limit
 
 ### Cookie Storage Limitations:
 
@@ -811,7 +805,7 @@ document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 - **Expiration**: Set reasonable expiry dates for cookies to manage storage effectively and enhance user privacy.
 - **Compliance**: Ensure compliance with privacy regulations (e.g., GDPR, CCPA) when using cookies, especially for tracking and advertising purposes.
 
-# Local storage
+## Local storage
 
 - Local Storage is used to store key-value pairs persistently across browser sessions.
 - Typically, it allows storage of up to 5MB of data per domain.
@@ -819,7 +813,7 @@ document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 - Accessed via the `localStorage` object in JavaScript.
 - Suitable for storing user preferences, settings, and small amounts of data that need to persist between visits.
 
-# IndexedDB
+## IndexedDB
 
 - Indexed DB is a more advanced DB-like storage mechanism for storing large amounts of structured data, providing indexed access to that data.
 - Supports larger data sets compared to Local Storage or Browser Storage
@@ -828,14 +822,14 @@ document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 - Accessed via the Indexed Database API (`indexedDB`) in JavaScript.
 - Suitable for applications requiring offline capabilities, complex data querying, and efficient management of large datasets.
 
-# Cache Storage
+## Cache Storage
 
 - Cache Storage is used to store network requests and their responses, providing a way to manage temporary storage of web resources (e.g., HTML, CSS, JavaScript files, images) for quick access and retrieval.
 - Generally, Cache Storage capacity is higher than other storage mechanisms, but it depends on the browser and device limitations.
 - Accessed via the Cache API in JavaScript (`caches`).
 - Used for improving web performance by caching resources that are frequently accessed or needed for offline use, such as in progressive web applications (PWAs).
 
-# Storage Options Cheatsheet
+## Storage Options Cheatsheet
 
 ```tsx
 // ###### Local Storage ######
@@ -929,14 +923,14 @@ caches.keys().then(function (cacheNames) {
 });
 ```
 
-# JSON Stringify vs Parse
+## JSON Stringify vs Parse
 
 - **Local Storage**: Simple, persistent storage for key-value pairs across browser sessions (up to 5MB per domain).
 - **Browser Storage**: Includes both Local Storage (persistent) and Session Storage (cleared at the end of the session), accessed via `localStorage` and `sessionStorage`.
 - **Indexed DB**: Advanced storage for structured data with indexed access, suitable for large datasets and complex queries (accessed via `indexedDB`).
 - **Cache Storage**: Temporary storage for web resources like files and network requests, used for improving performance by caching frequently accessed data (accessed via `caches`).
 
-# Promises
+## Promises
 
 - **Promises** are a fundamental feature in JavaScript for handling asynchronous operations.
 - They represent a value that may be available now, in the future, or never.
@@ -1009,7 +1003,7 @@ caches.keys().then(function (cacheNames) {
      });
    ```
 
-# Async Await
+## Async Await
 
 - **Async functions** are a modern syntax for handling asynchronous code in a more synchronous-looking way.
 - They are built on top of promises and provide a cleaner syntax for consuming promises.
@@ -1081,7 +1075,7 @@ caches.keys().then(function (cacheNames) {
 - **Graceful Degradation**
   - Implement fallbacks or default values when handling errors to ensure application resilience.
 
-# Transpiler vs Compiler
+## Transpiler vs Compiler
 
 ### Compiler:
 
@@ -1114,7 +1108,7 @@ caches.keys().then(function (cacheNames) {
   - Compilers are essential for creating executable programs, optimizing performance, and managing system resources.
   - Transpilers are used for language compatibility, modernizing code, or adapting code to different environments.
 
-# Timers
+## Timers
 
 - In JavaScript, timers such as `setTimeout`, `setInterval`, and `setImmediate` are used to execute code after a specified delay or repeatedly at set intervals.
 
@@ -1196,7 +1190,7 @@ caches.keys().then(function (cacheNames) {
 6. **Understand Event Loop and Timing**:
    - Be aware of how timers interact with the event loop to avoid unexpected behavior, especially in asynchronous operations.
 
-# JWT based Authentication
+## JWT based Authentication
 
 1. User submits their credentials through a login form
 2. API handles the login request and verifies the user against a database
@@ -1215,7 +1209,7 @@ caches.keys().then(function (cacheNames) {
 
 ![Untitled](Javascript%209da480f2d1cc4818aec4e61c424e0684/Untitled%202.png)
 
-# Pagination
+## Pagination
 
 ```tsx
 const PAGE_SIZE = 10;
@@ -1248,12 +1242,12 @@ function handlePagination(pageNumber, pageSize) {
 }
 ```
 
-# Event Loop and Queues
+## Event Loop and Queues
 
 - The event loop is a mechanism in JavaScript that allows it to perform non-blocking I/O operations by offloading operations to the system kernel whenever possible.
 - It manages the execution of various types of tasks in an efficient manner without blocking the main execution thread.
 
-## Task Queues
+### Task Queues
 
 - JavaScript maintains several task queues where different types of tasks are placed for execution.
 
@@ -1268,7 +1262,7 @@ function handlePagination(pageNumber, pageSize) {
 - **Purpose**: Tasks scheduled by web APIs like `setTimeout`, `setInterval`, DOM events, and I/O operations (e.g., `fetch`, `XMLHttpRequest`).
 - **Execution**: Processes one macro task at a time, in FIFO (First-In-First-Out) order, after the microtask queue is empty.
 
-## Other Task Queues
+### Other Task Queues
 
 In addition to micro and macro task queues, JavaScript environments typically manage several other queues to handle different types of operations:
 
@@ -1299,7 +1293,7 @@ In addition to micro and macro task queues, JavaScript environments typically ma
 3. **Process Macro Task Queue**: Picks the oldest task from the macro task queue and executes it. This includes processing timers, I/O callbacks, and other scheduled tasks.
 4. **Repeat**: Steps 2 and 3 continue iteratively, ensuring tasks are processed in a timely manner without blocking the main thread.
 
-## Visualized Event Loop
+### Visualized Event Loop
 
 - When we invoke a function, it gets added to something called the call stack.
 - The call stack is part of the JS engine, this isn’t browser specific.
@@ -1333,7 +1327,7 @@ The callback is added to the call stack, gets invoked and returns a value and th
 
 ![](https://res.cloudinary.com/practicaldev/image/fetch/s--uJB5zTD7--/c_limit,f_auto,fl_progressive,q_66,w_800/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif5.gif)
 
-# Object Freeze vs Seal
+## Object Freeze vs Seal
 
 - **Mutability**:
   - `Object.freeze` makes an object completely immutable (properties cannot be added, modified, or removed).
@@ -1357,7 +1351,7 @@ delete obj.prop2; // Error in strict mode, silently fails in non-strict mode
 console.log(obj); // { prop1: 100, prop2: 'hello' }
 ```
 
-# Proxy
+## Proxy
 
 - The `Proxy` object in JavaScript allows you to create a proxy (an intermediary) for another object, enabling custom behavior for fundamental operations like property lookup, assignment, enumeration, function invocation, etc.
 - This is powerful for meta-programming and interception of operations on objects.
@@ -1407,7 +1401,7 @@ proxy.message = "Changed message"; // Throws an error (custom set handler)
 - The `set` handler restricts modifications to the `message` property.
 - Any operations on the `proxy` object are intercepted and handled according to the defined handlers.
 
-# AbortController
+## AbortController
 
 - The `AbortController` interface allows you to abort (cancel) asynchronous operations such as fetching resources or any other operation that supports cancellation via the `AbortSignal` object.
 
@@ -1443,7 +1437,7 @@ setTimeout(() => {
 - We initiate a fetch operation asynchronously and set a timeout to abort it after 3 seconds.
 - When the timeout triggers, the `abort()` method is called on the `AbortController`, canceling the fetch operation.
 
-# Currying
+## Currying
 
 - **Currying** is a functional programming technique where a function with multiple arguments is transformed into a sequence of functions, each taking a single argument.
 - This allows for more modular and reusable code.
@@ -1476,7 +1470,7 @@ setTimeout(() => {
 3. **Partial Application**: Enables partial application of functions, where you can create new functions with preset arguments.
 4. **Higher-Order Functions**: Useful in higher-order functions where functions are passed as arguments or returned.
 
-# Partial Application
+## Partial Application
 
 - **Partial Application** is a technique where a function is called with a few arguments, returning a new function that takes the remaining arguments.
 - It is similar to currying but more flexible in the number of arguments fixed.
@@ -1528,11 +1522,11 @@ const multiplyBy6 = partialMultiplyBy2(3);
 console.log(multiplyBy6(4)); // 24
 ```
 
-# Generators
+## Generators
 
-# Iterators
+## Iterators
 
-# Service vs Web Workers
+## Service vs Web Workers
 
 - **Service Workers** and **Web Workers** are both part of the Web Workers API, which allows for background processing in web applications.
 - However, they serve different purposes and have different capabilities.
@@ -1672,7 +1666,7 @@ if ('serviceWorker' in navigator) {
   - Key Features: Offline caching, background sync, push notifications, lifecycle management, no direct DOM access.
   - Use Cases: Offline capabilities, caching strategies, background sync, push notifications.
 
-# Event Propagation
+## Event Propagation
 
 - Event propagation in JavaScript refers to the order in which event handlers are executed when an event occurs on an element within the DOM.
 - There are three phases in event propagation:

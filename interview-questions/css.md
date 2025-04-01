@@ -1,6 +1,4 @@
-# CSS
-
-# Positioning
+## Positioning
 
 1. **Static Positioning (`position: static`)**:
    - This is the default positioning mode for HTML elements.
@@ -21,7 +19,7 @@
    - It toggles between `relative` and `fixed` positioning, depending on the scroll position.
    - The element is treated as `relative` until it crosses a specified scroll threshold, after which it is treated as `fixed`.
 
-# Z-Index
+## Z-Index
 
 - In CSS, **z-index** is a property that specifies the stacking order of positioned elements.
 - When elements overlap on a web page, the z-index determines which one appears on top of the others.
@@ -40,26 +38,26 @@
      - Elements within the same stacking context are stacked according to their z-index values relative to their parent stacking context.
      - A higher z-index in one stacking context does not necessarily overlap a lower z-index in another stacking context.
 
-# Display modes
+## Display modes
 
-# Pseudo elements vs Pseudo Classes
+## Pseudo elements vs Pseudo Classes
 
-# New features in CSS3
+## New features in CSS3
 
-# Box model in CSS3
+## Box model in CSS3
 
-# How many ways can we add CSS to HTML
+## How many ways can we add CSS to HTML
 
-# How to Calculate Specificity
+## How to Calculate Specificity
 
-# Box Sizing
+## Box Sizing
 
-# Gradients
+## Gradients
 
-# Transitions and Keyframes
+## Transitions and Keyframes
 
-# SCSS
+## SCSS
 
-# Grid vs Flexbox
+## Grid vs Flexbox
 
-# Media Queries
+## Media Queries

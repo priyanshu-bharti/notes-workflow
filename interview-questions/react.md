@@ -1,10 +1,4 @@
-# React.js
-
-Tags: Interviewing
-Created time: July 5, 2024 6:45 PM
-Last edited time: April 1, 2025 1:31 AM
-
-# Component Life Cycle
+## Component Life Cycle
 
 - Every component in React goes through a lifecycle of events.
     - **Mounting —** Birth of your component. This is the stage where the *Component is inserted into the DOM*.
@@ -20,7 +14,7 @@ This is the diagram for functional component lifecycle
 
 ![Untitled](React%20js%204b2c583c047349a39bd1a2bf3e243132/Untitled%201.png)
 
-# Higher Order Components
+## Higher Order Components
 
 - Higher-order components (HOCs) are a pattern in React that allows you to **reuse component logic** by wrapping components with other components.
     - **Code Reusability:** Extract common logic and reuse it across multiple components.
@@ -29,7 +23,7 @@ This is the diagram for functional component lifecycle
     - **Performance Optimization:** Optimize rendering by implementing memorization or caching techniques.
     - **Context Manipulation:** Provide or consume context to share data or behavior between components. **State** abstraction and manipulation.
     - Wrap and enhance functionality from third-party libraries.
-    
+
     ```tsx
     functionwithLogger(WrappedComponent) {
       return function WithLogger(props) {
@@ -37,16 +31,16 @@ This is the diagram for functional component lifecycle
         return <WrappedComponent {...props} />;
       };
     }
-    
+
     function MyComponent(props) {
       // Component implementation
     }
-    
+
     const EnhancedComponent = withLogger(MyComponent); //HOC
     ```
-    
 
-# Virtual DOM
+
+## Virtual DOM
 
 - Virtual DOM provides an abstraction of the actual HTML DOM.
 - It is a lightweight copy or representation of the real DOM, maintained by React, which allows for efficient updates and rendering of components.
@@ -59,19 +53,19 @@ This is the diagram for functional component lifecycle
         - React compares the new Virtual DOM with the previous one to **determine the differences** or updates that need to be made.
         - By identifying the minimal set of changes, React optimizes performance by **minimizing** unnecessary updates to the actual DOM.
         - React updates the real DOM with the minimal modifications required to **reflect** the new Virtual DOM.
-        
+
         ![Untitled](React%20js%204b2c583c047349a39bd1a2bf3e243132/Untitled%202.png)
-        
+
 - React’s VDOM improves performance using the following:
     - React **batches multiple updates** together before applying them to the real DOM, reducing unnecessary re-renders.
     - It only updates the specific components or elements that have changed, **minimizing DOM manipulations**.
     - React’s efficient  identifies the minimal set of changes needed between the previous and new Virtual DOM representations.
-        
+
         **diffing algorithm**
-        
+
     - React’s **reconciliation process optimizes** updates by reusing existing DOM elements when possible.
 
-# Controlled vs Uncontrolled Inputs
+## Controlled vs Uncontrolled Inputs
 
 - Controlled (via props), and which information should be uncontrolled (via state).
 - **Controlled Components:**
@@ -85,7 +79,7 @@ This is the diagram for functional component lifecycle
     - Offers more flexibility and direct access to the DOM.
     - **Examples**: file inputs, certain form fields.
 
-# Pure Components
+## Pure Components
 
 - Pure components in React are components that only re-render when their props or state change.
     - **It minds its own business.** It should not change any objects or variables that existed before rendering.
@@ -98,57 +92,57 @@ This is the diagram for functional component lifecycle
 import React from 'react';
 const MyComponent = React.memo((props) => {
   // Component rendering logic here
-}); 
+});
 export default MyComponent;
 ```
 
 - Pure functions **only perform a calculation** and nothing more.
 - It makes your code easier to understand, debug, and allows React to automatically optimize your components and hooks correctly.
 
-# Prop Drilling
+## Prop Drilling
 
 - Prop drilling is a term used in React to describe the process of passing data from a part of a component tree to another part by going through other components that do not necessarily need the data, but only pass it down the tree.
 - To avoid prop drilling, you can use React’s Context API or state management libraries like Redux which allow you to access the state from anywhere in your component tree without having to pass it down through every level.
 
-# Synthetic Events
+## Synthetic Events
 
 - SyntheticEvent is a wrapper based on the browser’s native events.
 - It provides an unified API, prevents browser inconsistencies, and ensures that the event works across multiple platforms.
 
-## **JavaScript events**
+### **JavaScript events**
 
 - JavaScript events essentially allow a user to interact with a web application and implement operations, like registering click, focus, mouseover, and keypress actions when they are fired inside the browser.
 - Each JavaScript event has an event handler that works with an event listener.
 - The event listener listens for the particular event that should occur, while the event handler is a function that contains code blocks that will be executed once the event is either registered or fired.
 
-## **Synthetic Events**
+### **Synthetic Events**
 
 - React Synthetic Events are very similar to Native Events, however, with Synthetic Events, the same API interface is implemented across multiple browsers.
-    
+
     ![Untitled](React%20js%204b2c583c047349a39bd1a2bf3e243132/Untitled%203.png)
-    
+
 - Here is a log from Chrome Dev Tools Console where you can see it in action.
-    
+
     ![Untitled](React%20js%204b2c583c047349a39bd1a2bf3e243132/Untitled%204.png)
-    
+
 - Both Synthetic Events and Native Events can implement the  `preventDefault`  and  `stopPropagation` methods.
 - However, synthetic events and native events are not exactly the same thing.
 - For example, `SyntheticEvent` will point to `mouseout` for `onMouseLeave` Event.
 - You can always access native events with the `nativeEvent` attribute if you need direct access.
 - Other `SyntheticEvent` attributes include `DOMEventTarget`, `currentTarget`, `boolean defaultPrevented`, and `string type`, to name a few.
 
-## **Why it’s useful**
+### **Why it’s useful**
 
 - **Cross-browser:** It wraps the browser’s native event through `nativeEvent` attribute and provides a uniform api and consistent behavior on top level
 - **Better performance:** Events are [delegated](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_delegation) to document through [bubbling](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling).
 
-## **Key points**
+### **Key points**
 
 - Listen on `document` if you want to receive events **after all React handlers**.
 - Listen anywhere else in order to receive **before React handlers**
 - React event handlers will always execute after native capture handlers
 
-# Keys in Mapped Components
+## Keys in Mapped Components
 
 - In React, the key attribute is a special property that you need to include when creating lists of elements.
     - **Identification**
@@ -162,7 +156,7 @@ export default MyComponent;
         - Without keys, React might mix up states between components.
 - If the list is reordered or items are added/removed, using the index as a key might cause React to incorrectly update the items, leading to bugs and inconsistencies.
 
-# Refs in React
+## Refs in React
 
 - In React, refs (short for references) provide a way to directly access and interact with DOM elements or React components created in the render method.
 - They can be used to manage focus, trigger animations, or integrate with third-party libraries that require direct DOM manipulation.
@@ -180,7 +174,7 @@ Here’s a step-by-step guide on how to create and use a ref in a functional com
 2. **Attach the Ref**: Attach the ref to a DOM element using the `ref` attribute.
 3. **Access the Ref**: Access the DOM node or component instance via the ref's `current` property.
 
-# Class vs Functional Components
+## Class vs Functional Components
 
 | **Feature** | **Class Components** | **Function Components** |
 | --- | --- | --- |
@@ -248,7 +242,7 @@ function MyComponent() {
 export default MyComponent;
 ```
 
-# Code Splitting, Lazy Loading, and Suspense
+## Code Splitting, Lazy Loading, and Suspense
 
 - Code splitting is a technique that allows you to split your code into smaller bundles that can be loaded on demand.
 - This helps improve the performance of your React application by loading only the necessary code for the current user interaction, rather than loading the entire application at once.
@@ -256,7 +250,7 @@ export default MyComponent;
 - Instead, these resources are loaded only when they are needed.
 - In React, lazy loading is often used to load components only when they are rendered.
 
-## Lazy Loading and Suspense
+### Lazy Loading and Suspense
 
 ```tsx
 import React, { Suspense } from 'react';
@@ -281,7 +275,7 @@ function App() {
 export default App;
 ```
 
-## Dynamic Import
+### Dynamic Import
 
 ```tsx
 // Other.ts
@@ -309,7 +303,7 @@ const App = () => {
 export default App;
 ```
 
-# Error Boundary
+## Error Boundary
 
 - The `react-error-boundary` library provides a reusable error boundary component for handling errors in React components.
 - It helps to catch JavaScript errors anywhere in the component tree, log those errors, and display a fallback UI instead of the component tree that crashed.
@@ -367,13 +361,13 @@ const App = () => {
 export default App;
 ```
 
-# Tree Shaking
+## Tree Shaking
 
 - Tree-shaking is a technique used to eliminate dead code (code that is not used or not needed) from a JavaScript bundle.
 - This optimization reduces the size of the final bundle, improving load times and overall performance of the application.
 - In a React application, tree-shaking is typically enabled through the use of modern JavaScript module bundlers like Webpack, Rollup, or Parcel.
 
-# Side-effects
+## Side-effects
 
 - In React, "side effects" refer to any operations that affect something outside the scope of a function component.
 - These include tasks like data fetching, subscriptions, manual DOM manipulations, timers, logging, etc.
@@ -387,7 +381,7 @@ export default App;
 4. **Timers:** Setting up intervals or timeouts.
 5. **Logging:** Logging information to the console or an external service.
 
-# useReducer
+## useReducer
 
 - To use useReducer Hook, we need the following things:
     - Type for State
@@ -469,7 +463,7 @@ export default App;
 
 ```
 
-# useContext (Theme Context Demo)
+## useContext (Theme Context Demo)
 
 - To create a context first ensure that you have following files:
     - main.tsx
@@ -557,38 +551,38 @@ const App = () => {
 export default App;
 ```
 
-# useCallback, useMemo and React.memo
+## useCallback, useMemo and React.memo
 
 ### 1. `useCallback`
 
 - `useCallback` is a hook that returns a memoized version of the callback function that only changes if one of the dependencies has changed.
 - It's useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders.
-    
+
     **Syntax:**
-    
+
     ```jsx
     const memoizedCallback = useCallback(() => {
       doSomething(a, b);
     }, [a, b]);
     ```
-    
+
     **Example:**
-    
+
     ```jsx
     import React, { useState, useCallback } from 'react';
-    
+
     const ChildComponent = React.memo(({ onClick }) => {
       return <button onClick={onClick}>Click me</button>;
     });
-    
+
     const ParentComponent = () => {
       const [count, setCount] = useState(0);
-    
+
     	// The callback function doesn't change between renders
       const increment = useCallback(() => {
         setCount(prevCount => prevCount + 1);
       }, []);
-    
+
       return (
         <div>
           <p>Count: {count}</p>
@@ -596,37 +590,37 @@ export default App;
         </div>
       );
     };
-    
+
     export default ParentComponent;
     ```
-    
+
 
 ### 2. `useMemo`
 
 - `useMemo` is a hook that returns a memoized value.
 - It only recomputes the memoized value when one of the dependencies has changed.
 - This can be useful to optimize performance for expensive calculations that shouldn't be re-executed on every render.
-    
+
     **Syntax:**
-    
+
     ```jsx
     const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
     ```
-    
+
     **Example:**
-    
+
     ```jsx
     import React, { useState, useMemo } from 'react';
-    
+
     const ParentComponent = () => {
       const [count, setCount] = useState(0);
       const [text, setText] = useState('');
-    
+
     	// Only recalculates when `count` changes
       const expensiveCalculation = useMemo(() => {
         return count * 2;
       }, [count]);
-    
+
       return (
         <div>
           <p>Count: {count}</p>
@@ -641,36 +635,36 @@ export default App;
         </div>
       );
     };
-    
+
     export default ParentComponent;
     ```
-    
+
 
 ### 3. `React.memo`
 
 - `React.memo` is a higher-order component that memoizes a component.
 - It prevents the component from re-rendering if its props haven't changed, optimizing performance for functional components.
-    
+
     **Syntax:**
-    
+
     ```jsx
     const MemoizedComponent = React.memo(Component);
     ```
-    
+
     **Example:**
-    
+
     ```jsx
     import React, { useState } from 'react';
-    
+
     const ChildComponent = React.memo(({ count }) => {
       console.log('ChildComponent rendered');
       return <p>Count: {count}</p>;
     });
-    
+
     const ParentComponent = () => {
       const [count, setCount] = useState(0);
       const [text, setText] = useState('');
-    
+
       return (
         <div>
           <ChildComponent count={count} />
@@ -684,10 +678,10 @@ export default App;
         </div>
       );
     };
-    
+
     export default ParentComponent;
     ```
-    
+
 - In this example, `ChildComponent` will only re-render when its `count` prop changes, not when `text` in the parent changes, because `React.memo` prevents unnecessary re-renders based on props equality.
 
 ### Summary
@@ -696,12 +690,12 @@ export default App;
 - **`useMemo`**: Memoizes a value to prevent expensive calculations from being re-executed on every render.
 - **`React.memo`**: Memoizes a functional component to prevent re-renders if its props haven't changed, optimizing rendering performance.
 
-# Redux Toolkit
+## Redux Toolkit
 
 - Redux is a state management library that allows you to have global state in your applications.
 - This means, your state can be accessed by any component no matter where they are in the component hierarchy tree.
 
-## Store
+### Store
 
 - It represents the global state.
 - Redux toolkit allows you to set this up and connect it to your application in whatever way you like.
@@ -719,7 +713,7 @@ interface UserState {
 }
 ```
 
-## Action
+### Action
 
 - Tells redux what operations are allowed to be performed on the state.
 
@@ -728,12 +722,12 @@ const incrementCounter = { type: "INCREMENT", payload: 1 }
 const decrementCounter = { type: "DECREMENT", payload: 1 }
 ```
 
-## Reducers
+### Reducers
 
 - Functions which, depending on the action, will make updates to our state in the store.
 - We’re not allowed to directly mutate the state.
 
-## Adding redux to react app
+### Adding redux to react app
 
 ```tsx
 pnpm i react-redux @reduxjs/tooklit
@@ -931,7 +925,7 @@ export { incrementAsync };
 export default counterSlice.reducer;
 ```
 
-# Performance Optimization
+## Performance Optimization
 
 - To optimize a ReactJS application, we can follow several best practices and techniques.
     1. **Code Splitting:** Split your code into smaller chunks using tools like Webpack or React.lazy() to **load only what is necessary** for each page or component.
@@ -948,7 +942,7 @@ export default counterSlice.reducer;
     12. **Code Optimization:** Optimize your code by removing unused dependencies, reducing unnecessary calculations, and avoiding unnecessary DOM manipulations.
     13. **Performance Monitoring:** Continuously monitor your app’s performance using tools like Lighthouse, WebPageTest, or New Relic to identify areas for improvement.
 
-# Application Security
+## Application Security
 
 1. **HTTPS**: Ensure your application is served over HTTPS to encrypt data transmitted between the client and server, preventing attackers from intercepting sensitive information.
 2. **Avoid Storing Sensitive Data:** Avoid storing sensitive information such as passwords, API keys, and tokens directly in your code or client-side storage. Instead, use environment variables or server-side storage solutions.

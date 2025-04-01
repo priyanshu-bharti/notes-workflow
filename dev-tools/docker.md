@@ -1,12 +1,10 @@
-# Docker
----
 # 1. Introduction
 
 ## What is docker?
 - Platform of various tools for creating and managing containers.
 - Containers are created using images.
 - Images: Single file containing the software, dependencies and config to run a program.
-- Container is the running instance of an image. 
+- Container is the running instance of an image.
 - Container has its own isolated set of hardware resources.
 
 ## Docker Client
@@ -18,14 +16,14 @@
   - This program prints out some message to the console.
 - When docker gets some command to execute some image, it first checks the docker image cache to see if it already contains the requested image.
 - If not found, it will pull the image from the docker hub.
-- Then the running instance of the image is created as a container. 
+- Then the running instance of the image is created as a container.
 
 ## What's a container?
 - OS has its Kernel which is a running process providing access to hardware to the software.
 - Any request for accessing the hardware functionality is called a system call.
 - Processes requests for these resources all the time.
 - These resources can be controlled on a per-process basis using Namesapces and Cgroups.
-- ### Namespaces 
+- ### Namespaces
   - Isolating Resources per process or group of processes.
   - It means virtually segmenting an area of the hard drive.
   - We can isolate things like: Processes, Hard Drive, Network, Users, Hostnames, IPC...
@@ -63,12 +61,12 @@
   - **Starting** a container: `docker start <container id>`
     - You can use the Id of a created container to start it.
     - If you want to attach the container to the current terminal and watch for output, use the command `docker start -a <container_id>`
-- Whenever we run the image, we not only get the snapshot of the image, but also we invoke the startup command. 
+- Whenever we run the image, we not only get the snapshot of the image, but also we invoke the startup command.
   - ### Overriding Default Startup Command
   - This command can be overridden with a custom command by running `docker run <image> <command>`
   - One Important thing is that when you override the command and create a container, then the start command you've overridden can't be changed later. If you try to do it, docker will error out stating you can't start and attach multiple containers at once.
   - ### Listing Running Containers
-  - `docker ps` lists out some information regarding the running containers such as: id, image, command, created, status, ports, & names.  
+  - `docker ps` lists out some information regarding the running containers such as: id, image, command, created, status, ports, & names.
   - To List out all the containers ever created on the system, use `docker ps --all`
 
 ## Docker Prune
@@ -145,13 +143,13 @@ CMD ["redis-server"]
 3. Then the server performs the necessary steps to convert dockerfile into a usable image.
    ![](Docker/image%203.png)
 - When we run `docker build ./dockerfile --tag name`, docker pulls the base image first.
-- Then it sends the build context (path to the dockerfile) to the daemon server. 
+- Then it sends the build context (path to the dockerfile) to the daemon server.
 - For each line of the dockerfile a build step is created and the hash is calculated which helps in optimizing further builds for the same images.
   ![](Docker/image%204.png)
 - `FROM alpine`: Docker pulls the alpine image (if not cached) and creates the first immutable layer, calculating its hash.
-- `RUN apk add --update redis`: Docker starts a temporary container based on the previous layer, runs the command to install Redis, commits the filesystem changes as a new layer, and calculates its hash. 
+- `RUN apk add --update redis`: Docker starts a temporary container based on the previous layer, runs the command to install Redis, commits the filesystem changes as a new layer, and calculates its hash.
   - The temporary container is then discarded.
-- `CMD ["redis-server"]`: This adds metadata to the final image, specifying the default command to run when a container starts. 
+- `CMD ["redis-server"]`: This adds metadata to the final image, specifying the default command to run when a container starts.
   - No new layer or container is created.
 - The final image consists of the layers and metadata, with a unique hash identifying it.
   ![](Docker/image%205.png)
@@ -165,7 +163,7 @@ We can name and tag the image using the following commands:
 2. `docker build ./dockerfile -t name:tag <path to use folders for build>`
 The convention for naming your container is: `<your docker id> / <container> : <tags>`
 ### Manual Image Generation with Docker Commit
-- We can also create an image from one of our running docker containers using the command:`docker commit -c 'CMD ["some-command"]' <containerHash> name:tag` 
+- We can also create an image from one of our running docker containers using the command:`docker commit -c 'CMD ["some-command"]' <containerHash> name:tag`
 - This is useful if you have added something new to the existing container and want to use the new image.
 ---
 # 4. Making Real Projects with Docker
@@ -271,7 +269,7 @@ redis.createClient({ host: "redis-server", port: 6379 });
 ---
 # 6. Creating a Production-Grade Workflow
 
-## Flow Specifics 
+## Flow Specifics
 - The application development has 3 main stages:
   1. **Development** - Writing your code.
   2. **Testing** - Running Unit and Integration Tests.
@@ -305,7 +303,7 @@ COPY . .
 
 CMD [ "npm", "start" ]
 ```
-- We can build the image using `docker build -f dockerfile.dev . -t cra-test:latest` 
+- We can build the image using `docker build -f dockerfile.dev . -t cra-test:latest`
 - Once done, run this using the following command:
   `docker run -it --rm -p 3000:3000 -v ./:/node/app/ cra-test:latest`.
   - More about the flags used
@@ -351,13 +349,13 @@ services:
      1. `docker compose ps` to list out all running containers
      2. `docker exec -it <name|id> <test command>`
      - This approach requires you to cd to the build context then execute docker compose ps and then get the id of the container and then execute the tests with a long command.
-  2. We can create a whole new service in the docker-compose.yaml file for 
+  2. We can create a whole new service in the docker-compose.yaml file for
      - This will ensure whenever we add new tests to the project they'll get executed. But we still don't have any way of interacting with stdin for providing patterns.
 
 ## Need for Nginx
 - When we build the project and get the dist folder with the output html, css and js files, we require a server to serve those files to users on the internet.
 - For that reason we need some server like Nginx which takes all those files and serves them.
-  
+
 ## Multi-Step Docker Builds
 ![](Docker/image%208.png)
 - For building and serving our application we need to divide the process into 2 phases

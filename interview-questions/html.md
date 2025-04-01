@@ -1,6 +1,4 @@
-# HTML
-
-# HTML vs HTML5
+## HTML vs HTML5
 
 - **Evolution and Standards**
   - HTML (prior to HTML5) was a standard that evolved over time with various versions (HTML 4.01, XHTML 1.0, etc.)
@@ -16,7 +14,7 @@
 - **Integration with Web Technologies**
   - HTML5 is closely integrated with other web technologies such as CSS3 (for styling) and JavaScript (for dynamic behavior), providing a more cohesive and powerful platform for web development.
 
-# New features of HTML5
+## New features of HTML5
 
 - **Semantic Elements**
   - HTML5 introduced semantic elements like `<article>`, `<section>`, `<header>`, `<footer>`, `<nav>`, `<aside>`, etc., which provide better structure and semantics to web documents, making it easier for search engines and screen readers to interpret content.
@@ -44,7 +42,7 @@
 - **Drag and Drop**
   - HTML5 includes native support for drag-and-drop interactions, making it easier to implement intuitive user interfaces for file uploading, content rearrangement, and other interactive features.
 
-# Purpose of Doctype
+## Purpose of Doctype
 
 - **Document Type Definition (DTD)**
   - The `<!DOCTYPE>` declaration informs the web browser about the version of HTML or XHTML that the web page is written in.
@@ -57,7 +55,7 @@
   - Some HTML editors and validators use the `<!DOCTYPE>` declaration to validate whether the HTML code follows the specified rules and standards of the declared document type.
   - This helps developers ensure their code adheres to best practices and avoids potential rendering issues.
 
-# Nesting of Websites with iFrame
+## Nesting of Websites with iFrame
 
 1. **`<iframe>` Element**: The `<iframe>` tag is used to embed another document within the current HTML document.
 2. **Attributes**:
@@ -73,7 +71,7 @@
 - **Scrollbars**: By default, the iframe will display scrollbars if the content within it exceeds the specified dimensions. You can control this behavior using CSS (`overflow: hidden;`) or adjust the iframe dimensions accordingly.
 - **SEO Considerations**: Content within iframes may not be indexed by search engines as part of the embedding page's content. Ensure that your SEO strategy aligns with how iframes are used on your site.
 
-# HTML Entities
+## HTML Entities
 
 - HTML entities are special codes or sequences of characters used to represent characters that have a special meaning in HTML, or characters that cannot easily be typed or displayed using standard keyboard input.
 - They are primarily used to ensure that these characters are displayed correctly in web pages, even if they have special significance in HTML syntax.
@@ -99,7 +97,7 @@ Here are some commonly used HTML entities:
 10. `&ldquo;` - Represents the left double quotation mark (“).
 11. `&rdquo;` - Represents the right double quotation mark (”).
 
-# Void Elements
+## Void Elements
 
 - **Self-closing**:
   - Void elements do not have a separate closing tag.
@@ -112,7 +110,7 @@ Here are some commonly used HTML entities:
 - **Examples**:
   - Some common void elements include `<img>`, `<br>`, `<hr>`, `<input>`, `<meta>`, `<link>`, `<area>`, `<base>`, `<col>`, `<embed>`, `<keygen>`, `<param>`, `<source>`, `<track>`, and `<wbr>`.
 
-# Multipart Form Data
+## Multipart Form Data
 
 Multipart form data is a type of encoding used to submit form data that includes files or binary data within an HTTP request. It allows multiple parts of data to be combined into a single body, where each part represents a field or file to be uploaded.
 
@@ -130,7 +128,7 @@ Multipart form data is a type of encoding used to submit form data that includes
 4. **Content-Type**:
    - The `Content-Type` of the entire request is `multipart/form-data`, specifying the boundary used to separate parts.
 
-## Example
+### Example
 
 ### HTML Form
 
@@ -159,7 +157,7 @@ Content-Type: image/jpeg
 ------WebKitFormBoundaryABC123--
 ```
 
-# Asset Optimization
+## Asset Optimization
 
 ### 1. **Image Optimization:**
 
@@ -201,7 +199,7 @@ Content-Type: image/jpeg
 - **Performance Testing:** Regularly audit your website's performance using tools like Google PageSpeed Insights, GTmetrix, or WebPageTest to identify areas for improvement.
 - **Monitoring:** Monitor server response times, asset loading times, and overall performance metrics to detect and address performance bottlenecks.
 
-# Preload vs Prefetching
+## Preload vs Prefetching
 
 - Preloading and prefetching are techniques used in web development to improve page load performance by fetching resources in advance.
 - Although they serve similar purposes, they are used in slightly different contexts and have distinct behaviors:
@@ -247,7 +245,7 @@ Content-Type: image/jpeg
 - **Usage:** Use preload for resources required immediately (e.g., critical CSS, fonts for initial rendering).
   - Use prefetch for resources that can improve future navigation or interaction performance (e.g., next page's HTML, images not currently visible).
 
-# Audio and video files supported by HTML5 Player
+## Audio and video files supported by HTML5 Player
 
 ### Audio Formats:
 
@@ -270,7 +268,7 @@ Content-Type: image/jpeg
    - Supported by Firefox, Chrome, and Opera.
    - Less commonly used compared to MP4 and WebM.
 
-# Microdata in HTML5
+## Microdata in HTML5
 
 - Microdata in HTML5 is a semantic markup format used to annotate HTML elements with specific attributes that provide additional meaning or context to the content.
 - It allows web developers to embed machine-readable data into HTML documents, making it easier for search engines and other applications to understand and interpret the content.
@@ -286,7 +284,7 @@ Content-Type: image/jpeg
    - **`itemtype`**: Defines the type of the item using a URL that identifies a schema or vocabulary (e.g., `http://schema.org/Person`).
    - **`itemprop`**: Specifies properties (attributes) of the item, such as name, description, date published, etc.
 
-# WebComponents and ShadowDOM
+## WebComponents and ShadowDOM
 
 - Web Components and Shadow DOM are two related technologies in web development that enable developers to create reusable, encapsulated components with encapsulated styling and behavior.
 - Here’s an overview of each:
@@ -348,12 +346,12 @@ Content-Type: image/jpeg
 - **Maintainability**: Encapsulation helps in managing complexity by keeping markup, styles, and behavior localized and organized.
 - **Interoperability**: Web Components work across modern browsers and frameworks, providing a standardized way to build and share UI components.
 
-# Template Tag
+## Template Tag
 
 - The `<template>` tag in HTML is used to declare fragments of markup (HTML content) that are not rendered when the page loads but can be instantiated later using JavaScript.
 - This allows developers to define reusable content that can be cloned, modified, and inserted into the document dynamically.
 
-# Data Attributes
+## Data Attributes
 
 - Data attributes, also known as `data-*` attributes, are custom attributes that can be added to HTML elements to store extra information or data that is not directly represented by other attributes or content.
 - These attributes are prefixed with `data-`, followed by any name you choose (e.g., `data-name`, `data-id`, `data-toggle`, etc.).
@@ -363,7 +361,7 @@ Content-Type: image/jpeg
   - **Styling and Scripting**: They can be used to influence styling and scripting decisions within your application.
   - **Naming Convention**: Names should follow the pattern `data-*`, where `` is replaced with a meaningful name describing the data being stored.
 
-# Aria Attributes
+## Aria Attributes
 
 - ARIA (Accessible Rich Internet Applications) attributes are a set of attributes defined by the W3C to enhance the accessibility of web content and applications, particularly for users with disabilities.
 - ARIA attributes can be added to HTML elements to provide additional semantics and improve accessibility by conveying roles, states, properties, and relationships that are not otherwise conveyed through the native HTML semantics.
@@ -372,25 +370,25 @@ Content-Type: image/jpeg
   - **Usage**: ARIA attributes are typically used on interactive HTML elements (like form controls, buttons, navigation elements) to ensure they are correctly interpreted by assistive technologies.
   - **Semantic Meaning**: They do not affect how elements are styled or behave visually in browsers; their primary purpose is to enhance accessibility.
 
-# SVG
+## SVG
 
 - SVG (Scalable Vector Graphics) is an XML-based file format used for describing two-dimensional vector graphics.
 - Unlike raster graphics (e.g., JPEG, PNG), which are made up of pixels and can lose quality when scaled, SVGs are resolution-independent and can be scaled to any size without losing quality.
 - They are widely used for creating graphics that need to be scalable, interactive, and accessible on the web.
 
-# Canvas
+## Canvas
 
 - The Canvas API in HTML5 provides a way to dynamically generate and manipulate graphics and animations on a web page using JavaScript.
 - It allows you to draw graphics, shapes, images, and text directly onto a web page's `<canvas>` element.
 - The `<canvas>` element itself acts as a drawing surface where you can programmatically create and modify graphical content.
 
-# Local vs Session Storage vs Cookies
+## Local vs Session Storage vs Cookies
 
 - **Cookies** are useful for managing user sessions, storing user preferences, and tracking user behavior across different visits to a website. However, they have size limitations and are sent with every HTTP request, impacting performance.
 - **Local Storage** is suitable for applications needing persistent storage of larger amounts of data across browser sessions, such as offline web apps or cached data that should persist.
 - **Session Storage** is ideal for storing temporary data that needs to be cleared when the user closes the tab or window, ensuring data isolation between multiple tabs or windows of the same origin.
 
-# DOM vs BOM
+## DOM vs BOM
 
 ### DOM (Document Object Model):
 
@@ -404,7 +402,7 @@ Content-Type: image/jpeg
 - **Usage**: BOM objects provide methods and properties to interact with the browser environment, manage the browser's history, control navigation, manipulate the browser window (size, position), handle cookies, and detect client-side capabilities.
 - **Scope**: BOM objects are not standardized by W3C like the DOM. They are implemented differently across browsers, leading to inconsistencies in behavior and support.
 
-# Window vs Global Object
+## Window vs Global Object
 
 - **Environment**:
   - **Window**: Used in web browsers.
@@ -419,7 +417,7 @@ Content-Type: image/jpeg
   - **Window**: Represents the browser window, enabling interaction with the user interface and the web document.
   - **Global**: Represents the Node.js runtime, providing access to the system environment and Node.js-specific features.
 
-# Text formatting tags
+## Text formatting tags
 
 ```tsx
 <b>This text is bold.</b>
@@ -451,7 +449,7 @@ The value of <var>x</var> is unknown.
 The event starts at <time>19:00</time>.
 ```
 
-# Form and input tags
+## Form and input tags
 
 ```tsx
 <form action="/submit" method="post">
@@ -502,9 +500,9 @@ The event starts at <time>19:00</time>.
 
 ```
 
-# Lists and Tables
+## Lists and Tables
 
-## Ordered
+### Ordered
 
 ```tsx
 <ol>
@@ -514,7 +512,7 @@ The event starts at <time>19:00</time>.
 </ol>
 ```
 
-## Unordered
+### Unordered
 
 ```tsx
 <ul>
@@ -524,7 +522,7 @@ The event starts at <time>19:00</time>.
 </ul>
 ```
 
-## Definition
+### Definition
 
 ```tsx
 <dl>
@@ -535,7 +533,7 @@ The event starts at <time>19:00</time>.
 </dl>
 ```
 
-# Accessibility
+## Accessibility
 
 - Use semantic tags
 - Provide alternative text whenever possible
@@ -547,7 +545,7 @@ The event starts at <time>19:00</time>.
 - Accessible navigation and breadcrumbs
 - Responsive Design
 
-# Image Srcsets
+## Image Srcsets
 
 - The `srcset` attribute in the `<img>` tag allows you to define multiple image sources and let the browser decide which one to use based on the screen's resolution, size, and other factors.
 - This is useful for serving responsive images that look good on all devices while optimizing load times and bandwidth usage.
@@ -577,7 +575,7 @@ The event starts at <time>19:00</time>.
 </html>
 ```
 
-# Dragging and Dropping Elements
+## Dragging and Dropping Elements
 
 1. **Draggable Element (`draggable="true"`)**:
    - The element with `draggable="true"` attribute (`dragElement` in this case) indicates that it can be dragged.
