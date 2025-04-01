@@ -1,16 +1,10 @@
-# Typescript
-
-Tags: Programming Language
-Created time: June 11, 2024 4:14 AM
-Last edited time: July 9, 2024 8:04 AM
-
-# Installing Typescript
+## Installing Typescript
 
 ```tsx
 pnpm i -D typescript ts-node @types/node
 ```
 
-# Typescript Config (TSConfig)
+## Typescript Config (TSConfig)
 
 ```tsx
 {
@@ -34,7 +28,7 @@ pnpm i -D typescript ts-node @types/node
 }
 ```
 
-# Primitive Types
+## Primitive Types
 
 ```tsx
 const fullName: string = "John Cena";
@@ -42,14 +36,14 @@ const age: number = 56;
 const isAdult: boolean = true;
 ```
 
-# Arrays
+## Arrays
 
 ```tsx
 let allies: string[] = ["RVD", "Daniel Bryan", "Cody Rhodes"];
 let worldTitleYears: number[] = [4, 5, 6, 8, 9, 10, 11, 13, 14, 15, 16, 17];
 ```
 
-# Function
+## Function
 
 ```tsx
 function addTwo(a: number, b: number): number {
@@ -57,7 +51,7 @@ function addTwo(a: number, b: number): number {
 }
 ```
 
-# Union Types
+## Union Types
 
 ```tsx
 const emailAddress: string | null = "john@cenation.com";
@@ -72,7 +66,7 @@ function search(arr: number[], value: number): number | undefined {
 }
 ```
 
-# Type Guards
+## Type Guards
 
 ```tsx
 let name: string | undefined;
@@ -81,14 +75,14 @@ let name: string | undefined;
 if (typeof name === "string") console.log(name.length);
 ```
 
-# Custom Types
+## Custom Types
 
 ```tsx
 type CounterActions = "increment" | "decrement" | "reset";
-let counter: CounterActions = "reset"
+let counter: CounterActions = "reset";
 ```
 
-# Enum Types
+## Enum Types
 
 ```tsx
 enum JobRoles {
@@ -110,7 +104,7 @@ const userRole: JobRoles = JobRoles.Developer;
 const status: StatusCode = StatusCode.Redirect;
 ```
 
-# Custom Object Types (Schema)
+## Custom Object Types (Schema)
 
 ```tsx
 type Post = {
@@ -122,17 +116,17 @@ type Post = {
     name: {
       first: string;
       last: string;
-    }
+    };
     email: string;
-  }
+  };
   body: {
-    main: string,
-    summary: string
-  }
+    main: string;
+    summary: string;
+  };
 };
 ```
 
-# Interfaces
+## Interfaces
 
 ```tsx
 interface Post {
@@ -145,16 +139,16 @@ interface Post {
       firstName: string;
       lastName: string;
       email: string;
-    }
-  }
+    };
+  };
   body: {
-    main: String,
-    summary: String
-  }
-};
+    main: String;
+    summary: String;
+  };
+}
 ```
 
-# Extending Interfaces
+## Extending Interfaces
 
 ```tsx
 interface InstagramPost extends Post {
@@ -166,13 +160,13 @@ interface InstagramPost extends Post {
       reactions: {
         type: string;
         count: number;
-      }
-    }
-  }
+      };
+    };
+  };
 }
 ```
 
-# Implementing Interfaces
+## Implementing Interfaces
 
 ```tsx
 class Instagram implements InstagramPost {
@@ -193,7 +187,7 @@ class Instagram implements InstagramPost {
 }
 ```
 
-# Generics
+## Generics
 
 ```tsx
 interface Node<T> {
@@ -202,7 +196,7 @@ interface Node<T> {
 }
 ```
 
-# Type Casting
+## Type Casting
 
 ```tsx
 interface Student {
@@ -220,7 +214,7 @@ const foo: Student = {
 const bar: Employee = foo;
 ```
 
-# Declaration Merging
+## Declaration Merging
 
 ```tsx
 // Declaring Fruit as an interface
@@ -273,7 +267,7 @@ const kevinFav = Fruit.createBanana();
 export { Fruit };
 ```
 
-# Top Types
+## Top Types
 
 ```tsx
 // Typescript accepts any possible value.
@@ -287,53 +281,53 @@ accessNotAllowed.property; // accessNotAllowed is of type unknown
 // Typescript accepts any value other than primitives
 let nonPrimitive: object = {};
 nonPrimitive = 30; // Not allowed.
-nonPrimitive = null // Allowed.
+nonPrimitive = null; // Allowed.
 nonPrimitive = {}; // Allowed.
 
 // Typescript accepts any value other than null or undefined
 let somethingDefined = {};
 ```
 
-# Bottom Types
+## Bottom Types
 
 ```tsx
 // Define shapes of various vehicles.
 class Car {
   drive() {
-    console.log("vroom")
+    console.log("vroom");
   }
 }
 class Truck {
   tow() {
-    console.log("dragging something")
+    console.log("dragging something");
   }
 }
 class Boat {
   isFloating() {
-    return true
+    return true;
   }
 }
 
 // Unreachable Branch Getting Triggered at Runtime
 class UnreachableError extends Error {
   constructor(_nvr: never, message: string) {
-    super(message)
+    super(message);
   }
 }
 
 // Union Type for Vehicles
-type Vehicle = Truck | Car | Boat
- 
+type Vehicle = Truck | Car | Boat;
+
 // Assume that this randomly returns one of the vehicles
-let myVehicle: Vehicle = obtainRandomVehicle()
- 
+let myVehicle: Vehicle = obtainRandomVehicle();
+
 // We handle all possible vehicle types
 if (myVehicle instanceof Truck) {
-  myVehicle.tow() // Truck
+  myVehicle.tow(); // Truck
 } else if (myVehicle instanceof Car) {
-  myVehicle.drive() // Car
+  myVehicle.drive(); // Car
 } else if (myVehicle instanceof Boat) {
-  myVehicle.drive() // Boat
+  myVehicle.drive(); // Boat
 } else {
   // We accidently have a type of vehicle that shouldn't exist.
   const neverValue: never = myVehicle;
@@ -341,25 +335,25 @@ if (myVehicle instanceof Truck) {
 }
 ```
 
-# Not-Null Assertion
+## Not-Null Assertion
 
 ```tsx
 type GroceryCart = {
-  fruits?: { name: string; qty: number }[]
-  vegetables?: { name: string; qty: number }[]
-}
- 
-const cart: GroceryCart = {}
- 
+  fruits?: { name: string; qty: number }[];
+  vegetables?: { name: string; qty: number }[];
+};
+
+const cart: GroceryCart = {};
+
 cart.fruits.push({ name: "Apple", qty: 1 }); // cart.fruits possibly undefined
 cart.fruits!.push({ name: "Apple", qty: 1 }); // Allowed.
 ```
 
-# Definite Assignment
+## Definite Assignment
 
 ```tsx
 class Instagram implements InstagramPost {
-	// These fields will be initialized with non-null values sometimes later.
+  // These fields will be initialized with non-null values sometimes later.
   id!: number;
   title!: string;
   published!: Date;
@@ -369,7 +363,7 @@ class Instagram implements InstagramPost {
 }
 ```
 
-# Optional Chaining
+## Optional Chaining
 
 ```tsx
 type Payment = {
@@ -398,27 +392,27 @@ type ResponseData = {
 };
 
 function getLastPayment(data: ResponseData): number | undefined {
-	// If any step of the chain is undefined, whole expression is undefined.
+  // If any step of the chain is undefined, whole expression is undefined.
   return data.customer?.lastInvoice?.lastPayment?.amount;
 }
 ```
 
-# Nullish Coalescing
+## Nullish Coalescing
 
 ```tsx
 // Define volume steps for music player
 type PlayerConfig = {
-  volume?: 0 | 25 | 50 | 75 | 100
-}
+  volume?: 0 | 25 | 50 | 75 | 100;
+};
 
 // If vol is undefined, make it 50.
 function initializePlayer(config: PlayerConfig): void {
-  const vol = typeof config.volume === 'undefined' ? 50 : config.volume;
+  const vol = typeof config.volume === "undefined" ? 50 : config.volume;
   setVolume(vol);
 }
 
 // Conditionally apply values
-const vol = typeof config.volume === 'undefined' ? 50 : config.volume;
+const vol = typeof config.volume === "undefined" ? 50 : config.volume;
 
 // Performing Logical OR makes volume level 0 disappear since both are falsy
 const vol = config.volume || 50;
@@ -427,31 +421,31 @@ const vol = config.volume || 50;
 const vol = config.volume ?? 50;
 ```
 
-# ESM Imports/Exports
+## ESM Imports/Exports
 
 ```tsx
 // Modern JS Code
-import { Blueberry, Raspberry } from './berries' // Named imports
-import Kiwi from './kiwi' // Default import
+import { Blueberry, Raspberry } from "./berries"; // Named imports
+import Kiwi from "./kiwi"; // Default import
 export function makeFruitSalad() {} // Named export
 export default class FruitBasket {} // Default export
-export { lemon, lime } from './citrus' // Named Re-export
-export * as berries from './berries' // Namespace Re-export
+export { lemon, lime } from "./citrus"; // Named Re-export
+export * as berries from "./berries"; // Namespace Re-export
 
 // Typescript additions
-import * as allBerries from "./berries" // Namespace import
-allBerries.Strawberry // Using the namespace
-export * from "./berries" // Namespace re-export
+import * as allBerries from "./berries"; // Namespace import
+allBerries.Strawberry; // Using the namespace
+export * from "./berries"; // Namespace re-export
 ```
 
-# Type only Import/Exports
+## Type only Import/Exports
 
 ```tsx
 import type { Strawberry } from './berries/strawberry'
 export type Blueberry;
 ```
 
-# CommonJS Interoperability
+## CommonJS Interoperability
 
 ```tsx
 // Typescript may not be able to check for types using this syntax
@@ -461,7 +455,7 @@ const Something = require("../cjs/module.cjs");
 const { Something } = require("../cjs/module.cjs");
 
 // Import as a namespace
-import Something from "../cjs/module.cjs"
+import Something from "../cjs/module.cjs";
 
 // Import from within a namespace
 import { Something } from "../cjs/module.cjs";
@@ -470,18 +464,18 @@ import { Something } from "../cjs/module.cjs";
 import NameSpace = require("../cjs/module.cjs");
 ```
 
-# Generic Scopes and Constraints
+## Generic Scopes and Constraints
 
 ```tsx
 
 ```
 
-# Conditional Types
+## Conditional Types
 
-# Inference with Conditional Types
+## Inference with Conditional Types
 
-# Mapped Types
+## Mapped Types
 
-# Type Registry
+## Type Registry
 
-# Variance Over Type Params
+## Variance Over Type Params

@@ -38,7 +38,7 @@
 
 ## JavaScript and TypeScript
 
-- [Typescript Fundamentals](js-ts/ts.md)
+- [Typescript Fundamentals (WIP)](js-ts/ts.md)
 
 ## DBMS
 
