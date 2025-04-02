@@ -70,6 +70,32 @@ public class JumpSearch {
 
 ```
 
+#### Alternative Implementation (While Loop)
+
+```ts
+  public jumpSearch(arr: number[], needle: number): number {
+    let jumpAmount = Math.floor(Math.sqrt(arr.length));
+    let prev = 0;
+
+    // Figure out which block is it
+    while (prev < arr.length && arr[prev] <= needle) {
+      prev += jumpAmount;
+    }
+
+    let start = Math.max(0, prev - jumpAmount);
+    let end = Math.min(arr.length, prev + jumpAmount);
+
+    // Linearly search that block.
+    for (let i = start; i < end; i++) {
+      if (arr[i] === needle) {
+        return i;
+      }
+    }
+
+    return -1;
+  }
+```
+
 ```mermaid
 graph TD;
     A["Start"] --> B["Compute jumpAmount = sqrt(arr.length)"]
