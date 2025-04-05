@@ -12,6 +12,8 @@
     "Quasilinear",
     "RDBMS",
     "Savepoint",
+    "subarray",
+    "subarrays",
     "Sublinear"
   ],
   "cSpell.enabledFileTypes": {
