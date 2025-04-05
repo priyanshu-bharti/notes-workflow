@@ -1,56 +1,3 @@
-## What is a linked list
-
-- Node based data structure
-- Linked lists are linear arrangement of nodes
-- Store references to next (and previous nodes in case of doubly linked list.)
-- There are 2 pointers head and tail to track the start and the end of a list.
-- Newly created nodes are assigned memory from the heap.
-
-```mermaid
-graph LR
-    A["NULL"]
-    B["prev | data: 10 | next"]
-    C["prev | data: 20 | next"]
-    D["prev | data: 30 | next"]
-    E["NULL"]
-
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-
-    B -->|prev| A
-    C -->|prev| B
-    D -->|prev| C
-    E -->|prev| D
-```
-
-```ts
-interface Node<T> {
-  value: T;
-  next?: Node<T>;
-  prev?: Node<T>;
-}
-```
-
-## Operations of a linked list
-
-| Operation Name     | Description                                 | TC                                         |
-| ------------------ | ------------------------------------------- | ------------------------------------------ |
-| Insert at Head     | Add a new node at the beginning of the list | O(1)                                       |
-| Insert at Tail     | Add a new node at the end of the list       | O(1) if tail is maintained, O(n) otherwise |
-| Insert at Position | Insert a node at a specific position        | O(n)                                       |
-| Delete Head        | Remove the first node of the list           | O(1)                                       |
-| Delete Tail        | Remove the last node of the list            | O(n)                                       |
-| Delete at Position | Remove a node from a specific position      | O(n)                                       |
-| Search             | Find a node with a specific value           | O(n)                                       |
-| Traverse           | Visit all nodes in order                    | O(n)                                       |
-| Reverse            | Reverse the entire linked list              | O(n)                                       |
-| Get Length         | Count the number of nodes in the list       | O(n)                                       |
-
-## Implementation
-
-```java
 /* -------------------------------------------------------------------------- */
 /*                           Doubly Linked List Node                          */
 /* -------------------------------------------------------------------------- */
@@ -253,6 +200,64 @@ public class DLL<T> {
     // Return null if we're unable to find the value asked.
     return null;
   }
-}
 
-```
+  @Override
+  public String toString() {
+    StringBuilder str = new StringBuilder();
+
+    Node<T> currNode = head;
+
+    str.append("HEAD <-> ");
+
+    // Traverse while the nodes exist.
+    while (currNode != null) {
+      str.append(currNode.value).append(" <-> ");
+      currNode = currNode.next; // Move to the next node;
+    }
+
+    str.append("NULL");
+
+    return str.toString();
+  }
+
+  public static void main(String[] args) {
+    // Create a new doubly linked list of integers
+    DLL<Integer> list = new DLL<>();
+
+    // Append elements
+    list.append(10);
+    list.append(20);
+    list.append(30);
+    System.out.println("After appending 10, 20, 30:\n" + list);
+
+    // Prepend elements
+    list.prepend(5);
+    System.out.println("After prepending 5:\n" + list);
+
+    // Insert at index
+    list.insertAt(2, 15);
+    System.out.println("After inserting 15 at index 2:\n" + list);
+
+    // Get value at index
+    System.out.println("Value at index 3: " + list.getValueAt(3)); // should be 20
+
+    // Remove from start
+    System.out.println("Removed from start: " + list.removeStart());
+    System.out.println("After removing from start:\n" + list);
+
+    // Remove from end
+    System.out.println("Removed from end: " + list.removeEnd());
+    System.out.println("After removing from end:\n" + list);
+
+    // Remove at index
+    System.out.println("Removed at index 1: " + list.removeAt(1));
+    System.out.println("After removing at index 1:\n" + list);
+
+    // Remove by value
+    System.out.println("Removed value 15: " + list.removeValue(15));
+    System.out.println("After trying to remove value 15:\n" + list);
+
+    // Check final length
+    System.out.println("Final length of list: " + list.length);
+  }
+}
