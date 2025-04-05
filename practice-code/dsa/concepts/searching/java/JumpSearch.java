@@ -1,3 +1,4 @@
+package searching;
 public class JumpSearch {
   public static int search(int[] arr, int needle) {
     int jumpAmount = (int) Math.sqrt(arr.length);

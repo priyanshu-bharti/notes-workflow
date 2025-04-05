@@ -1,3 +1,4 @@
+package searching;
 public class BinarySearch {
   public static int searchIterative(int arr[], int needle) {
     int lo = 0;
