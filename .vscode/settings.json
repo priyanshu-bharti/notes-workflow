@@ -4,6 +4,8 @@
     "Arraylist",
     "Backpressure",
     "Clickjacking",
+    "DEPQ",
+    "Deque",
     "Elastisearch",
     "Leetcode",
     "Microfrontends",
