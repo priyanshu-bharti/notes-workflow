@@ -17,7 +17,8 @@
     "Savepoint",
     "subarray",
     "subarrays",
-    "Sublinear"
+    "Sublinear",
+    "unshift"
   ],
   "cSpell.enabledFileTypes": {
     "markdown": true

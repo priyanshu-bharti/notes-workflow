@@ -1,54 +1,3 @@
-## What are Ring Buffers?
-
-- It is a circular queue implemented using an ArrayList.
-- We can add/remove elements like a Stack and a Queue.
-- When we remove an item, we move the head and tail all while performing modulo arithmetic.
-- When the head and tail point to the same location, either we can overwrite or grow the ArrayList.
-
-```mermaid
-flowchart LR
-  subgraph RingBuffer Circular View
-    A0[0]
-    A1[1]
-    A2[2]
-    A3[3]
-    A4[4]
-  end
-
-  A0 --> A1
-  A1 --> A2
-  A2 --> A3
-  A3 --> A4
-  A4 -- wraps to --> A0
-
-  style A0 fill:#f9f,stroke:#333,color:#000,stroke-width:2px
-  style A4 fill:#f9f,stroke:#333,color:#000,stroke-width:2px
-
-  H[headIdx] --> A1
-  T[tailIdx] --> A4
-
-```
-
-- This shows a buffer of capacity 5 (indices 0 to 4).
-- When you reach the last slot (4), the next insert wraps around to index 0.
-- Arrows form a loop to illustrate the circular traversal.
-- headIdx points to index 1, and tailIdx is at index 4 in this example.
-
-## Operations
-
-| Operation | Description                       | TC (Time Complexity) | SC (Space Complexity) |
-| --------- | --------------------------------- | -------------------- | --------------------- |
-| push      | Adds an element to the end        | O(1) amortized       | O(1)                  |
-| pop       | Removes an element from the end   | O(1)                 | O(1)                  |
-| unshift   | Adds an element to the beginning  | O(1) amortized       | O(1)                  |
-| shift     | Removes an element from beginning | O(1)                 | O(1)                  |
-| get       | Accesses element at position      | O(1)                 | O(1)                  |
-| set       | Updates element at position       | O(1)                 | O(1)                  |
-| grow      | Doubles the buffer size           | O(n)                 | O(n)                  |
-
-## Ring Buffer Implementation
-
-```ts
 class RingBuffer<T> {
   /* ----------------------- Just some bookkeeping stuff ---------------------- */
   length: number;
@@ -160,4 +109,3 @@ class RingBuffer<T> {
     return value; // Return the value
   }
 }
-```
