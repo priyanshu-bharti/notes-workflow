@@ -1,31 +1,3 @@
-## Problem
-
-- Given a list of strings representing a maze which looks like the block shown below.
-- Where s = start, e = end x = walls, we need to find the path from the starting point to the end.
-
-```
-xxxxsx
-x    x
-xexxxx
-```
-
-## Approach
-
-- The approach is to start at point s and continue exploring in all directions until we can't.
-- When we can't move any further, we backtrack and move in a direction where we can.
-- While moving one of these scenarios can happen.
-  - (Base-Case) We hit a wall.
-  - (Base-Case) We're off the map.
-  - (Base-Case) We're at a seen block.
-  - (Base-Case) We've reached the end.
-- These are the base cases, now let's look at the pre, recurse and post steps.
-  - Pre: Mark the current block as seen and add curr block to the path.
-  - Recurse: Move in all 4 directions, and return true.
-  - Post: If for some reason walk fails, pop current block from the path, and return false.
-
-## Implementation
-
-```ts
 type Point = {
   x: number;
   y: number;
@@ -91,5 +63,3 @@ function walk(
   path.pop();
   return false;
 }
-
-```

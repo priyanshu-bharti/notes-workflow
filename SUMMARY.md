@@ -31,15 +31,19 @@
 ## Data Structures and Algorithms
 
 - Core Concepts
-  * [Big O](dsa/concepts/big-o.md)
-  * [Primitive Arrays](dsa/concepts/primitive-arrays.md)
-  * [Search Algorithms](dsa/concepts/searching-algos.md)
-  * [Sort Algorithms](dsa/concepts/sorting-algos.md)
+  - [Big O](dsa/concepts/big-o.md)
+  - [Primitive Arrays](dsa/concepts/primitive-arrays.md)
+  - [Search Algorithms](dsa/concepts/searching-algos.md)
+  - [Sort Algorithms](dsa/concepts/sorting-algos.md)
   - [Linked List](dsa/concepts/linked-list.md)
   - [Queues](dsa/concepts/queue.md)
   - [Stacks](dsa/concepts/stack.md)
   - [Arraylist](dsa/concepts/array-list.md)
   - [Ring Buffer](dsa/concepts/ring-buffer.md)
+  - [Recursion](dsa/concepts/recursion.md)
+  - [Path Finding](dsa/concepts/path-finding.md)
+  - [Trees](dsa/concepts/trees.md)
+  - [Graphs](dsa/concepts/graphs.md)
 
 ## JavaScript and TypeScript
 
