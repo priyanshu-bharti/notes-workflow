@@ -37,8 +37,7 @@ public:
     }
 };
 
-int main()
-{
+int main() {
    // declare class object
     parent *parentClassPointer; // make parent class pointer
     child childClassObject; // make derived class object
