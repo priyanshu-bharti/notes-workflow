@@ -19,9 +19,9 @@ const HEADERS = {
     "description",
     "use-cases",
     "naive-approach",
+    "optimal-approach",
     "time-complexity",
     "space-complexity",
-    "optimal-approach",
   ],
   "system-design": [
     "component",
