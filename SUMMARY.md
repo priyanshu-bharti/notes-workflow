@@ -52,3 +52,7 @@
 ## DBMS
 
 - [SQL](dbms/sql.md)
+
+## Object Oriented Concepts
+
+- [Basics](oop/basics.md)
