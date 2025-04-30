@@ -115,3 +115,7 @@ function pyramidInverse(row: number) {
 }
 
 pyramidInverse(5);
+
+function almostDiamond() {
+
+}
