@@ -9,6 +9,7 @@
     "DEPQ",
     "Deque",
     "Elastisearch",
+    "elif",
     "endl",
     "Fenwick",
     "inorder",
@@ -16,6 +17,7 @@
     "Merkle",
     "Microfrontends",
     "Multistack",
+    "nums",
     "Pastebin",
     "postorder",
     "Preorder",
@@ -27,7 +29,7 @@
     "subarrays",
     "Sublinear",
     "unshift"
-  ],
+],
   "cSpell.enabledFileTypes": {
     "markdown": true
   }
