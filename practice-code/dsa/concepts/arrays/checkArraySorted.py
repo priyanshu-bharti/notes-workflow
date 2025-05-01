@@ -1,0 +1,67 @@
+"""
+Problem Statement:
+------------------
+Given an array nums, return true if the array was originally sorted in
+non-decreasing order, then rotated some number of positions (including zero).
+Otherwise, return false.
+
+There may be duplicates in the original array.
+
+Note: An array A rotated by x positions results in an array B of the same length
+such that B[i] == A[(i+x) % A.length] for every valid index i.
+
+Example 1:
+Input: nums = [3,4,5,1,2]
+Output: true
+Explanation: [1,2,3,4,5] is the original sorted array.
+You can rotate the array by x = 3 positions to begin on the element of value 3: [3,4,5,1,2].
+
+Example 2:
+Input: nums = [2,1,3,4]
+Output: false
+Explanation: There is no sorted array once rotated that can make nums.
+
+Example 3:
+Input: nums = [1,2,3]
+Output: true
+Explanation: [1,2,3] is the original sorted array.
+You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.
+
+"""
+
+
+def checkArrayRotatedSorted(arr):
+    # Get the size of the array.
+    size = len(arr)
+
+    # Drops are indices where the prev item is greater than the current item.
+    # In a rotated sorted array, there should be only 1 drop.
+    drops = 0  # Initially, there should be no drops before walking.
+
+    # Walk the array and find the drops in a wrap around way (circular)
+    for i in range(0, size):
+        curr = arr[i]  # Get the current item
+        prev = arr[(i - 1) % size]  # Get the prev item with a wrap around.
+
+        # If the prev item is greater than the current item, it is a drop.
+        if prev > curr:
+            drops += 1  # Increment the counter
+
+    # If there are no or 1 drops, then the list is a valid sorted rotated list
+    if drops <= 1:
+        return True
+
+    # If there are more drops, the list is not sorted.
+    return False
+
+
+inputs = [
+    [4, 5, 1, 2, 3],  # True
+    [4, 3, 6, 7, 8],  # False
+    [10, 1, 1, 10],  # True
+    [6, 10, 6],  # True
+]
+
+for arr in inputs:
+    result = checkArrayRotatedSorted(arr)
+    print(result)
