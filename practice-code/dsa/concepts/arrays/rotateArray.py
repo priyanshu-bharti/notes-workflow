@@ -1,0 +1,69 @@
+"""
+Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+
+Example 1:
+----------
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
+
+Example 2:
+----------
+Input: nums = [-1,-100,3,99], k = 2
+Output: [3,99,-1,-100]
+Explanation:
+rotate 1 steps to the right: [99,-1,-100,3]
+rotate 2 steps to the right: [3,99,-1,-100]
+"""
+
+from typing import List
+
+
+def reverse(nums: List[int], start: int, end: int) -> None:
+    """
+    Reverse elements of nums from index `start` to `end` (inclusive).
+    Used to reverse parts of the array in-place.
+    """
+
+    # Walk over half the items and swap them to reverse them.
+    while start < end:
+        nums[start], nums[end] = nums[end], nums[start]
+        start += 1
+        end -= 1
+
+
+def rotate(self, nums: List[int], k: int) -> None:
+    """
+    Rotates the array `nums` to the right by `k` steps using the three-reversal method.
+    Operates in-place with O(n) time and O(1) extra space.
+    """
+
+    # Get the size of the list
+    size = len(nums)
+
+    # Normalize k to handle values greater than the size of the array
+    k %= size
+
+    # If k is 0, the array doesn't need any rotation
+    if k == 0:
+        return
+    else:
+        # Step 1: Reverse the entire array
+        reverse(nums, 0, size - 1)
+        # Step 2: Reverse the first k elements (they are the rotated tail)
+        reverse(nums, 0, k - 1)
+        # Step 3: Reverse the rest of the array (original front portion)
+        reverse(nums, k, size - 1)
+
+
+inputs = [
+    [[1, 2, 3, 4, 5, 6, 7], 3],
+    [[-1, -100, 3, 99], 2],
+]
+
+for arr, k in inputs:
+    rotate(None, arr, k)
+    print(arr)
