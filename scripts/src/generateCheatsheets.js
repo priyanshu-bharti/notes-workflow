@@ -1,16 +1,13 @@
-const fs        = require("fs");
-const path      = require("path");
-const matter    = require("gray-matter");
-const inquirer  = require("inquirer");
+const fs = require("fs");
+const path = require("path");
+const matter = require("gray-matter");
+const inquirer = require("inquirer");
 const csvWriter = require("csv-writer");
-
 
 const { PROMPT_CATEGORIES, HEADERS } = require("./constants.js");
 
-
 const DEBUGGING = false;
 const NO_PROMPT = process.argv.includes("--no-prompt");
-
 
 // Define the project root (Assumes the script is in "scripts/src/")
 const PROJECT_ROOT = path.resolve(__dirname, "../../");
@@ -79,6 +76,15 @@ const generateCheatsheet = async (category) => {
   console.log(`📝 Found ${markdownFiles.length} markdown files in ${category}`);
 
   const data = markdownFiles
+    .sort((a, b) => {
+      const nameA = path.basename(a, ".md");
+      const nameB = path.basename(b, ".md");
+
+      const numA = parseInt(nameA.match(/^\d+/)?.[0] || 0, 10);
+      const numB = parseInt(nameB.match(/^\d+/)?.[0] || 0, 10);
+
+      return numA - numB;
+    })
     .map((file) => {
       const content = fs.readFileSync(file, "utf8");
       const parsed = matter(content);
