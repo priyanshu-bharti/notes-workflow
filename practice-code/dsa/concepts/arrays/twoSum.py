@@ -1,0 +1,67 @@
+"""
+Given an array of integers nums and an integer target, return indices of the two
+numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you may not
+use the same element twice.
+
+You can return the answer in any order.
+
+Example 1:
+----------
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+Example 2:
+----------
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+
+Example 3:
+----------
+Input: nums = [3,3], target = 6
+Output: [0,1]
+"""
+
+from typing import List
+
+
+def twoSum(self, nums: List[int], target: int) -> List[int]:
+    # Store the total number of elements in the array
+    size = len(nums)
+
+    # Dictionary (hashmap) to store numbers we've seen so far and their corresponding indices.
+    # Key = number from array
+    # Value = index of that number
+    # Purpose: To look up in O(1) time if the "complement" of the current number exists.
+    seen = {}
+
+    # Iterate over the array elements by index
+    for i in range(size):
+        # Get the current number at index i
+        curr = nums[i]
+
+        # Compute the number we need in addition to 'curr' to reach the target
+        remaining = target - curr
+
+        # Check if this required number has already been seen
+        if remaining in seen:
+            # If yes, return the stored index of that number and the current index
+            # Because seen[remaining] + curr = target
+            return [seen[remaining], i]
+        else:
+            # If not, store the current number and its index in the map
+            # So it can be matched with a future number if needed
+            seen[curr] = i
+
+
+inputs = [
+    [[2, 7, 11, 15], 9],
+    [[3, 2, 4], 6],
+    [[3, 3], 6],
+]
+
+for nums, target in inputs:
+    result = twoSum(None, nums, target)
+    print(result)
