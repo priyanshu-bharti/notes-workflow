@@ -44,6 +44,7 @@
   - [Path Finding](dsa/concepts/path-finding.md)
   - [Trees](dsa/concepts/trees.md)
   - [Graphs](dsa/concepts/graphs.md)
+  - [Leetcode Problems and Principles](dsa/concepts/leetcode-principles.md)
 
 ## JavaScript and TypeScript
 
