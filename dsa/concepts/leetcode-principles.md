@@ -48,22 +48,47 @@ To find these we can simply use the prefix sum's difference.
 
 ## Boyer Moore (Find n/2 Majority Element) Algorithm
 
-- The problem guarantees that a majority element always exists, i.e., an element appears more than ⌊n / 2⌋ times. That means:
-- If you pair up different elements (e.g., 2 and 3), you are effectively canceling them out.
-- Since the majority element appears more than half the time, it cannot be completely canceled out. After all canceling, it will remain.
-- Think of it as a "voting" process where:
-  - Each element is a "candidate" that either gains or loses votes.
-  - You maintain a candidate and a count.
-  - The count is incremented when the current number matches the candidate.
-  - The count is decremented when the current number differs.
-  - When count hits 0, you pick the current number as the new candidate.
-  - The reason this works is because the majority element has more than n/2 votes, so it will outbalance all the other elements combined.
+- Used to find the element that appears more than ⌊n / 2⌋ times.
+- Works only if such a majority element is guaranteed to exist.
+- Keeps track of:
+  - A potential majority element (`majorityElement`)
+  - A count representing how often we've seen the same element.
+
+### ✅ How it works:
+
+- Start with `count = 0` and `majorityElement = None`.
+- For each number in the array:
+  - If `count == 0`: set current number as the `majorityElement`, reset `count = 1`.
+  - Else if number is **same** as `majorityElement`: increase `count`.
+  - Else (number is **different**): decrease `count`.
+- After full traversal, `majorityElement` will hold the correct result.
+
+### ⚠️ Things to Watch Out For:
+
+- Only use this when the majority element **definitely exists**.
+- Doesn’t give the right result if the assumption is violated.
+
+### Dry Run
+
+| Index | Num | Current Majority | Count | Action                                   |
+| ----- | --- | ---------------- | ----- | ---------------------------------------- |
+| 0     | 3   | None             | 1     | Count was 0 → Set majority = 3           |
+| 1     | 1   | 3                | 0     | Different from majority → Decrease count |
+| 2     | 1   | 1                | 1     | Count was 0 → Set majority = 1           |
+| 3     | 0   | 1                | 0     | Different → Decrease count               |
+| 4     | 1   | 1                | 1     | Count was 0 → Set majority = 1           |
+| 5     | 3   | 1                | 0     | Different → Decrease count               |
+| 6     | 3   | 3                | 1     | Count was 0 → Set majority = 3           |
+| 7     | 4   | 3                | 0     | Different → Decrease count               |
+| 8     | 4   | 4                | 1     | Count was 0 → Set majority = 4           |
+| 9     | 1   | 4                | 0     | Different → Decrease count               |
 
 ## Leetcode Problems
 
 ### Arrays
 
 #### Easy
+
 1. [Largest Element In Array](../leetcode-problems/arrays/1.LargestElementInArray.md)
 2. [Second Largest Element](../leetcode-problems/arrays/2.SecondLargestElement.md)
 3. [Check Rotated Sorted Array](../leetcode-problems/arrays/3.CheckRotatedSortedArray.md)
@@ -77,6 +102,7 @@ To find these we can simply use the prefix sum's difference.
 11. [Longest Subarray Sum](../leetcode-problems/arrays/11.LongestSubarraySum.md)
 
 #### Medium
+
 12. [Two Sum](../leetcode-problems/arrays/12.TwoSum.md)
 13. [Sort 0s, 1s and 2s](../leetcode-problems/arrays/13.Sort01and2.md)
 14. [Majority Element (n/2)](../leetcode-problems/arrays/14.MajorityElement.md)
