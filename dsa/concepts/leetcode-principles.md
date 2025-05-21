@@ -61,7 +61,9 @@ To find these we can simply use the prefix sum's difference.
 
 ## Leetcode Problems
 
-{% content-ref url="../leetcode-problems/arrays/1.LargestElementInArray.md" %} . {% endcontent-ref %}
+### Arrays
+
+#### Easy
 1. [Largest Element In Array](../leetcode-problems/arrays/1.LargestElementInArray.md)
 2. [Second Largest Element](../leetcode-problems/arrays/2.SecondLargestElement.md)
 3. [Check Rotated Sorted Array](../leetcode-problems/arrays/3.CheckRotatedSortedArray.md)
@@ -73,6 +75,8 @@ To find these we can simply use the prefix sum's difference.
 9. [Max Consecutive Ones](../leetcode-problems/arrays/9.MaxConsecutiveOnes.md)
 10. [Number Appearing Twice](../leetcode-problems/arrays/10.NumberAppearingTwice.md)
 11. [Longest Subarray Sum](../leetcode-problems/arrays/11.LongestSubarraySum.md)
+
+#### Medium
 12. [Two Sum](../leetcode-problems/arrays/12.TwoSum.md)
 13. [Sort 0s, 1s and 2s](../leetcode-problems/arrays/13.Sort01and2.md)
 14. [Majority Element (n/2)](../leetcode-problems/arrays/14.MajorityElement.md)
