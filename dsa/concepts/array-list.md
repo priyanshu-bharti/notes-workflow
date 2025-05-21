@@ -28,3 +28,4 @@
 11. [Longest Subarray Sum](../leetcode-problems/arrays/11.LongestSubarraySum.md)
 12. [Two Sum](../leetcode-problems/arrays/12.TwoSum.md)
 13. [Sort 0s, 1s and 2s](../leetcode-problems/arrays/13.Sort01and2.md)
+14. [Majority Element (n/2)](../leetcode-problems/arrays/14.MajorityElement.md)
