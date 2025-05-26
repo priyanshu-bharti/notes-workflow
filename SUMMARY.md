@@ -59,3 +59,17 @@
 - [Basic Concepts](oop/basics.md)
 - [Virtual Keyword](oop/virtual-keyword.md)
 - [Abstract Keyword](oop/abstract-keyword.md)
+
+## Backend Concepts
+
+### Communication Patterns
+
+- [Request Response](backend-concepts/Communication-Patterns/1.Request-Response.md)
+- [Sync Async](backend-concepts/Communication-Patterns/2.Sync-Async.md)
+- [Push](backend-concepts/Communication-Patterns/3.Push.md)
+- [Polling](backend-concepts/Communication-Patterns/4.Polling.md)
+- [Server Sent Events](backend-concepts/Communication-Patterns/5.Server-sent-events.md)
+- [Publish Subscribe](backend-concepts/Communication-Patterns/6.Publish-Subscribe.md)
+- [Multiplexing vs De-multiplexing](backend-concepts/Communication-Patterns/7.Multiplexing-Demultiplexing.md)
+- [Stateless vs Stateful](backend-concepts/Communication-Patterns/8.Stateless-Stateful.md)
+- [Sidecar](backend-concepts/Communication-Patterns/9.Sidecar.md)
