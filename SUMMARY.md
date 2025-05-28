@@ -72,3 +72,6 @@
   - [Multiplexing vs De-multiplexing](backend-concepts/Communication-Patterns/7.Multiplexing-Demultiplexing.md)
   - [Stateless vs Stateful](backend-concepts/Communication-Patterns/8.Stateless-Stateful.md)
   - [Sidecar](backend-concepts/Communication-Patterns/9.Sidecar.md)
+- Protocols
+  - [Protocol Design](backend-concepts/Protocols/1.Protocol-Design.md)
+  - [OSI Model](backend-concepts/Protocols/2.OSI.md)
